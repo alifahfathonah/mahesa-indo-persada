@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KontakController;
-use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,16 @@ use App\Http\Controllers\BerandaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [BerandaController::class, 'index']);
+Route::get('/', [DashboardController::class, 'frontend']);
 Route::get('/kontak', [KontakController::class, 'frontend']);
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['prefix' => 'admin-area'], function () {
+        Route::get('/', [DashboardController::class, 'backend']);
+    });
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

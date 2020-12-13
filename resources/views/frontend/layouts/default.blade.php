@@ -3,7 +3,7 @@
 <head>
 	@include('frontend.includes.head')
 </head>
-<body class="int_white_bg h19">
+<body class="inner-pages">
     <!-- Wrapper -->
     <div id="wrapper" class="int_main_wraapper">
 

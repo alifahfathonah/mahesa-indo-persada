@@ -208,33 +208,34 @@ jQuery(document).on('ready', function ($) {
 		loop: false,
 		margin: 0,
 		dots: false,
-		autoWidth: false,
+        autoWidth: false,
+        autoHeight: false,
 		autoplay: true,
 		autoplayTimeout: 5000,
 		responsive: {
 			0: {
 				items: 2,
-				margin: 10
+				margin: 50
 			},
 			400: {
 				items: 2,
-				margin: 10
+				margin: 50
 			},
 			500: {
 				items: 3,
-				margin: 10
+				margin: 50
 			},
 			768: {
 				items: 4,
-				margin: 10
+				margin: 50
 			},
 			992: {
 				items: 5,
-				margin: 10
+				margin: 50
 			},
 			1000: {
 				items: 6,
-				margin: 10
+				margin: 50
 			}
 		}
 	});

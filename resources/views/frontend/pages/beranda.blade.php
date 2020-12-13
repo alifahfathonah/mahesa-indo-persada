@@ -113,8 +113,8 @@
     <section class="top-locations recently portfolio bg-white-1">
         <div class="container-fluid">
             <div class="section-title col-md-5">
-                <h3>Top</h3>
-                <h2>Locations</h2>
+                <h3>Rumah</h3>
+                <h2>Terbaru</h2>
             </div>
             <div class="portfolio col-xl-12">
                 <div class="slick-lancers">
@@ -365,7 +365,6 @@
         </div>
     </section>
     <!-- END SECTION AGENTS -->
-
 @endsection
 
 @push('scripts')<!-- ARCHIVES JS -->
