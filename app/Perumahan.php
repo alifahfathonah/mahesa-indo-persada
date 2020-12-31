@@ -9,4 +9,9 @@ class Perumahan extends Model
     //
     protected $table = 'perumahan';
     protected $primaryKey = 'perumahan_id';
+
+    public function rumah()
+    {
+        return $this->hasMany('App\Rumah', 'perumahan_id', 'perumahan_id');
+    }
 }

@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="assets/findhouse/css/swiper.min.css">
     <link rel="stylesheet" href="assets/findhouse/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/findhouse/css/lightcase.css">
-    <link rel="stylesheet" href="assets/findhouse/css/owl-carousel.css">
     <link rel="stylesheet" href="assets/findhouse/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/findhouse/css/bootstrap.css">
     <link rel="stylesheet" href="assets/findhouse/css/menu.css">

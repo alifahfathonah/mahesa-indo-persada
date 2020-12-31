@@ -110,113 +110,60 @@
     <!-- SLIDER END -->
 
     <!-- START SECTION TOP LOCATIONS -->
-    <section class="top-locations recently portfolio bg-white-1">
-        <div class="container-fluid">
-            <div class="section-title col-md-5">
-                <h3>Rumah</h3>
-                <h2>Terbaru</h2>
-            </div>
-            <div class="portfolio col-xl-12">
-                <div class="slick-lancers">
+        <section class="recently portfolio">
+            <div class="container">
+                <div class="section-title ml-3">
+                    <h3>Property</h3>
+                    <h2>Terbaru</h2>
+                </div>
+                <div class="portfolio col-xl-12">
+                    <div class="slick-lancers">
+                    @foreach ($rumah as $rumah)
                     <div class="agents-grid">
-                        <a href="single-property-1.html" class="recent-16">
-                            <div class="recent-img16 img-center" style="background-image: url(images/popular-places/7.jpg);"></div>
-                            <div class="recent-content"></div>
-                            <div class="recent-details">
-                                <div class="recent-title">New York</div>
-                                <div class="recent-price">32 Properties</div>
+                        <div class="landscapes">
+                            <div class="project-single">
+                                <div class="project-inner project-head">
+                                    <div class="project-bottom">
+                                        <h4><a href="/rumah/{{ $rumah->rumah_id }}">Detail</a><span class="category">{{ $rumah->perumahan->perumahan_nama }}</span></h4>
+                                    </div>
+                                    <div class="homes">
+                                        <!-- homes img -->
+                                        <a href="single-property-1.html" class="homes-img">
+                                            <img src="{{ $rumah->gambar->count()? Storage::url($rumah->gambar->first()->rumah_gambar): '' }}" alt="home-1" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- homes content -->
+                                <div class="homes-content">
+                                    <!-- homes address -->
+                                    <h3><a href="/rumah/{{ $rumah->rumah_id }}">{{ $rumah->rumah_tipe }}</a></h3>
+                                    <p class="homes-address mb-3">
+                                        <a href="/rumah/{{ $rumah->rumah_id }}">
+                                            <span>{{ $rumah->rumah_deskripsi }}</span>
+                                        </a>
+                                    </p>
+                                    <!-- homes List -->
+                                    <ul class="homes-list clearfix">
+                                        <li>
+                                            <i class="fa fa-bed" aria-hidden="true"></i>
+                                            <span>{{ $rumah->rumah_kamar }} Kamar Tidur</span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-bath" aria-hidden="true"></i>
+                                            <span>{{ $rumah->rumah_kamar_mandi }} Kamar Mandi</span>
+                                        </li>
+                                    </ul>
+                                    <!-- Price -->
+                                    <div class="price-properties">
+                                        <h3 class="title mt-3">
+                                            <a href="single-property-1.html">Rp. {{ number_format($rumah->rumah_harga) }}</a>
+                                        </h3>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="view-proper">View Details</div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="agents-grid">
-                        <a href="single-property-1.html" class="recent-16">
-                            <div class="recent-img16 img-center" style="background-image: url(images/popular-places/8.jpg);"></div>
-                            <div class="recent-content"></div>
-                            <div class="recent-details">
-                                <div class="recent-title">Los Angeles</div>
-                                <div class="recent-price">13 Properties</div>
-                            </div>
-                            <div class="view-proper">View Details</div>
-                        </a>
-                    </div>
-                    <div class="agents-grid">
-                        <a href="single-property-1.html" class="recent-16">
-                            <div class="recent-img16 img-center" style="background-image: url(images/popular-places/9.jpg);"></div>
-                            <div class="recent-content"></div>
-                            <div class="recent-details">
-                                <div class="recent-title">Miami</div>
-                                <div class="recent-price">15 Properties</div>
-                            </div>
-                            <div class="view-proper">View Details</div>
-                        </a>
-                    </div>
-                    <div class="agents-grid">
-                        <a href="single-property-1.html" class="recent-16">
-                            <div class="recent-img16 img-center" style="background-image: url(images/popular-places/10.jpg);"></div>
-                            <div class="recent-content"></div>
-                            <div class="recent-details">
-                                <div class="recent-title">Chicago</div>
-                                <div class="recent-price">24Properties</div>
-                            </div>
-                            <div class="view-proper">View Details</div>
-                        </a>
-                    </div>
-                    <div class="agents-grid">
-                        <a href="single-property-1.html" class="recent-16">
-                            <div class="recent-img16 img-center" style="background-image: url(images/popular-places/11.jpg);"></div>
-                            <div class="recent-content"></div>
-                            <div class="recent-details">
-                                <div class="recent-title">San Francisco</div>
-                                <div class="recent-price">28 Properties</div>
-                            </div>
-                            <div class="view-proper">View Details</div>
-                        </a>
-                    </div>
-                    <div class="agents-grid">
-                        <a href="listing-details.html" class="recent-16">
-                            <div class="recent-img16 img-center" style="background-image: url(images/popular-places/7.jpg);"></div>
-                            <div class="recent-content"></div>
-                            <div class="recent-details">
-                                <div class="recent-title">New York</div>
-                                <div class="recent-price">32 Properties</div>
-                            </div>
-                            <div class="view-proper">View Details</div>
-                        </a>
-                    </div>
-                    <div class="agents-grid">
-                        <a href="single-property-1.html" class="recent-16">
-                            <div class="recent-img16 img-center" style="background-image: url(images/popular-places/7.jpg);"></div>
-                            <div class="recent-content"></div>
-                            <div class="recent-details">
-                                <div class="recent-title">New York</div>
-                                <div class="recent-price">32 Properties</div>
-                            </div>
-                            <div class="view-proper">View Details</div>
-                        </a>
-                    </div>
-                    <div class="agents-grid">
-                        <a href="single-property-1.html" class="recent-16">
-                            <div class="recent-img16 img-center" style="background-image: url(images/popular-places/8.jpg);"></div>
-                            <div class="recent-content"></div>
-                            <div class="recent-details">
-                                <div class="recent-title">Los Angeles</div>
-                                <div class="recent-price">13 Properties</div>
-                            </div>
-                            <div class="view-proper">View Details</div>
-                        </a>
-                    </div>
-                    <div class="agents-grid">
-                        <a href="single-property-1.html" class="recent-16">
-                            <div class="recent-img16 img-center" style="background-image: url(images/popular-places/9.jpg);"></div>
-                            <div class="recent-content"></div>
-                            <div class="recent-details">
-                                <div class="recent-title">Miami</div>
-                                <div class="recent-price">15 Properties</div>
-                            </div>
-                            <div class="view-proper">View Details</div>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -229,8 +176,8 @@
             <div class="row info-head">
                 <div class="col-lg-12 col-md-8 col-xs-8">
                     <div class="info-text">
-                        <h3 class="text-center mb-0">Why Choose Us</h3>
-                        <p class="text-center mb-4 p-0">We offer perfect real estate services</p>
+                        <h3 class="text-center mb-0">Moto Kami</h3>
+                        <p class="text-center mb-4 p-0">Kami menawarkan property yang terbaik dan ternyaman</p>
                     </div>
                 </div>
             </div>
@@ -243,30 +190,14 @@
         <div _ngcontent-bgi-c3="" class="container">
             <div _ngcontent-bgi-c3="" class="featured-boxes-inner">
                 <div _ngcontent-bgi-c3="" class="row m-0">
+                    @foreach ($moto as $moto)
                     <div _ngcontent-bgi-c3="" class="col-lg-3 col-sm-6 col-md-6 p-0">
                         <div _ngcontent-bgi-c3="" class="single-featured-box">
-                            <div _ngcontent-bgi-c3="" class="icon color-fb7756"><img src="images/icons/i-1.svg" width="85" height="85" alt=""></div>
-                            <h3 _ngcontent-bgi-c3="" class="mt-5">Find Your Home</h3>
-                            <p _ngcontent-bgi-c3="">Lorem ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.</p><a _ngcontent-bgi-c3="" class="read-more-btn" href="single-property-1.html">Read More</a></div>
+                            <div _ngcontent-bgi-c3="" class="icon color-fb7756"><img src="{{ Storage::url($moto->moto_gambar) }}" width="85" height="85" alt=""></div>
+                            <h3 _ngcontent-bgi-c3="" class="mt-5">{{ $moto->moto_judul }}</h3>
+                            <p _ngcontent-bgi-c3="">{{ $moto->moto_deskripsi }}</p></div>
                     </div>
-                    <div _ngcontent-bgi-c3="" class="col-lg-3 col-sm-6 col-md-6 p-0">
-                        <div _ngcontent-bgi-c3="" class="single-featured-box">
-                            <div _ngcontent-bgi-c3="" class="icon color-facd60"><img src="images/icons/i-2.svg" width="85" height="85" alt=""></div>
-                            <h3 _ngcontent-bgi-c3="" class="mt-5">Trusted by thousands</h3>
-                            <p _ngcontent-bgi-c3="">Lorem ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.</p><a _ngcontent-bgi-c3="" class="read-more-btn" href="single-property-1.html">Read More</a></div>
-                    </div>
-                    <div _ngcontent-bgi-c3="" class="col-lg-3 col-sm-6 col-md-6 p-0">
-                        <div _ngcontent-bgi-c3="" class="single-featured-box">
-                            <div _ngcontent-bgi-c3="" class="icon color-1ac0c6"><img src="images/icons/i-3.svg" width="85" height="85" alt=""></div>
-                            <h3 _ngcontent-bgi-c3="" class="mt-5">Financing made easy</h3>
-                            <p _ngcontent-bgi-c3="">Lorem ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.</p><a _ngcontent-bgi-c3="" class="read-more-btn" href="single-property-1.html">Read More</a></div>
-                    </div>
-                    <div _ngcontent-bgi-c3="" class="col-lg-3 col-sm-6 col-md-6 p-0">
-                        <div _ngcontent-bgi-c3="" class="single-featured-box">
-                            <div _ngcontent-bgi-c3="" class="icon"><img src="images/icons/i-4.svg" width="85" height="85" alt=""></div>
-                            <h3 _ngcontent-bgi-c3="" class="mt-5">24/7 support</h3>
-                            <p _ngcontent-bgi-c3="">Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan.</p><a _ngcontent-bgi-c3="" class="read-more-btn" href="single-property-1.html">Read More</a></div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -277,15 +208,15 @@
     <section class="team bg-white-1">
         <div class="container">
             <div class="section-title col-md-5">
-                <h3>Meet Our</h3>
                 <h2>Agents</h2>
             </div>
             <div class="row team-all">
                 <!--Team Block-->
+                @foreach ($karyawan as $karyawan)
                 <div class="team-block col-lg-3 col-md-6 col-xs-12">
                     <div class="inner-box team-details">
                         <div class="image team-head">
-                            <a href="agents-listing-grid.html"><img src="images/team/t-1.jpg" alt="" /></a>
+                            <a href="agents-listing-grid.html"><img src="{{ Storage::url($karyawan->karyawan_gambar) }}" alt="" /></a>
                             <div class="team-hover">
                                 <ul class="team-social">
                                     <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
@@ -296,75 +227,133 @@
                             </div>
                         </div>
                         <div class="lower-box">
-                            <h3><a href="agents-listing-grid.html">Carls Jhons</a></h3>
-                            <div class="designation">Real Estate Agent</div>
+                            <h3><a href="agents-listing-grid.html">{{ $karyawan->karyawan_nama }}</a></h3>
+                            <div class="designation">{{ $karyawan->karyawan_hp }}</div>
                         </div>
                     </div>
                 </div>
-                <!--Team Block-->
-                <div class="team-block col-lg-3 col-md-6 col-xs-12">
-                    <div class="inner-box team-details">
-                        <div class="image team-head">
-                            <a href="agents-listing-grid.html"><img src="images/team/t-2.jpg" alt="" /></a>
-                            <div class="team-hover">
-                                <ul class="team-social">
-                                    <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- END SECTION AGENTS -->
+
+    <!-- START SECTION BLOG -->
+    <section class="blog-section bg-white-2">
+        <div class="container">
+            <div class="section-title">
+                <h3>Berita</h3>
+                <h2>Tarbaru</h2>
+            </div>
+            <div class="news-wrap">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-xs-12">
+                        <div class="news-item">
+                            <a href="blog-details.html" class="news-img-link">
+                                <div class="news-item-img">
+                                    <img class="img-responsive" src="images/blog/b-10.jpg" alt="blog image">
+                                </div>
+                            </a>
+                            <div class="news-item-text">
+                                <a href="blog-details.html"><h3>Explore The World</h3></a>
+                                <div class="dates">
+                                    <span class="date">April 11, 2020 &nbsp;/</span>
+                                    <ul class="action-list pl-0">
+                                        <li class="action-item pl-2"><i class="fa fa-heart"></i> <span>306</span></li>
+                                        <li class="action-item"><i class="fa fa-comment"></i> <span>34</span></li>
+                                        <li class="action-item"><i class="fa fa-share-alt"></i> <span>122</span></li>
+                                    </ul>
+                                </div>
+                                <div class="news-item-descr big-news">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ipsum dolor sit amet, consectetur.</p>
+                                </div>
+                                <div class="news-item-bottom">
+                                    <a href="blog-details.html" class="news-link">Read more...</a>
+                                    <div class="admin">
+                                        <p>By, Karl Smith</p>
+                                        <img src="images/testimonials/ts-6.jpg" alt="">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="lower-box">
-                            <h3><a href="agents-listing-grid.html">Arling Tracy</a></h3>
-                            <div class="designation">Real Estate Agent</div>
                         </div>
                     </div>
-                </div>
-                <!--Team Block-->
-                <div class="team-block col-lg-3 col-md-6 col-xs-12 pb-none">
-                    <div class="inner-box team-details">
-                        <div class="image team-head">
-                            <a href="agents-listing-grid.html"><img src="images/team/t-3.jpg" alt="" /></a>
-                            <div class="team-hover">
-                                <ul class="team-social">
-                                    <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
+                    <div class="col-xl-4 col-md-6 col-xs-12">
+                        <div class="news-item">
+                            <a href="blog-details.html" class="news-img-link">
+                                <div class="news-item-img">
+                                    <img class="img-responsive" src="images/blog/b-11.jpg" alt="blog image">
+                                </div>
+                            </a>
+                            <div class="news-item-text">
+                                <a href="blog-details.html"><h3>Find Good Places</h3></a>
+                                <div class="dates">
+                                    <span class="date">May 20, 2020 &nbsp;/</span>
+                                    <ul class="action-list pl-0">
+                                        <li class="action-item pl-2"><i class="fa fa-heart"></i> <span>306</span></li>
+                                        <li class="action-item"><i class="fa fa-comment"></i> <span>34</span></li>
+                                        <li class="action-item"><i class="fa fa-share-alt"></i> <span>122</span></li>
+                                    </ul>
+                                </div>
+                                <div class="news-item-descr big-news">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ipsum dolor sit amet, consectetur.</p>
+                                </div>
+                                <div class="news-item-bottom">
+                                    <a href="blog-details.html" class="news-link">Read more...</a>
+                                    <div class="admin">
+                                        <p>By, Lis Jhonson</p>
+                                        <img src="images/testimonials/ts-5.jpg" alt="">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="lower-box">
-                            <h3><a href="agents-listing-grid.html">Mark Web</a></h3>
-                            <div class="designation">Real Estate Agent</div>
                         </div>
                     </div>
-                </div>
-                <!--Team Block-->
-                <div class="team-block col-lg-3 col-md-6 col-xs-12 pb-none">
-                    <div class="inner-box team-details">
-                        <div class="image team-head">
-                            <a href="agents-listing-grid.html"><img src="images/team/t-4.jpg" alt="" /></a>
-                            <div class="team-hover">
-                                <ul class="team-social">
-                                    <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
-                                    <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
+                    <div class="col-xl-4 col-md-6 col-xs-12">
+                        <div class="news-item no-mb">
+                            <a href="blog-details.html" class="news-img-link">
+                                <div class="news-item-img">
+                                    <img class="img-responsive" src="images/blog/b-12.jpg" alt="blog image">
+                                </div>
+                            </a>
+                            <div class="news-item-text">
+                                <a href="blog-details.html"><h3>All Places In Town</h3></a>
+                                <div class="dates">
+                                    <span class="date">Jun 30, 2020 &nbsp;/</span>
+                                    <ul class="action-list pl-0">
+                                        <li class="action-item pl-2"><i class="fa fa-heart"></i> <span>306</span></li>
+                                        <li class="action-item"><i class="fa fa-comment"></i> <span>34</span></li>
+                                        <li class="action-item"><i class="fa fa-share-alt"></i> <span>122</span></li>
+                                    </ul>
+                                </div>
+                                <div class="news-item-descr big-news">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ipsum dolor sit amet, consectetur.</p>
+                                </div>
+                                <div class="news-item-bottom">
+                                    <a href="blog-details.html" class="news-link">Read more...</a>
+                                    <div class="admin">
+                                        <p>By, Ted Willians</p>
+                                        <img src="images/testimonials/ts-4.jpg" alt="">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="lower-box">
-                            <h3><a href="agents-listing-grid.html">Katy Grace</a></h3>
-                            <div class="designation">Real Estate Agent</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- END SECTION AGENTS -->
+    <!-- END SECTION BLOG -->
+
+        <!-- STAR SECTION PARTNERS -->
+        <div class="partners bg-white-1">
+            <div class="container">
+                <div class="owl-carousel style2">
+                    @foreach ($partner as $partner)
+                    <div class="owl-item"><img src="{{ Storage::url($partner->partner_gambar) }}" alt=""></div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <!-- END SECTION PARTNERS -->
 @endsection
 
 @push('scripts')<!-- ARCHIVES JS -->
@@ -390,6 +379,9 @@
 <script src="assets/findhouse/js/ajaxchimp.min.js"></script>
 <script src="assets/findhouse/js/newsletter.js"></script>
 <script src="assets/findhouse/js/forms-2.js"></script>
+
+<script src="assets/findhouse/js/slick.min.js"></script>
+<script src="assets/findhouse/js/slick3.js"></script>
 <script>
     $(window).on('scroll load', function() {
         $("#header.cloned #logo img").attr("src", $('#header #logo img').attr('data-sticky-logo'));
@@ -411,8 +403,8 @@
 <script src="assets/findhouse/revolution/js/extensions/revolution.extension.video.min.js"></script>
 
 
-<script src="assets/findhouse/js/slick.min.js"></script>
-<script src="assets/findhouse/js/slick2.js"></script>
+<script src="assets/findhouse/assets/findhouse/js/slick.min.js"></script>
+<script src="assets/findhouse/assets/findhouse/js/slick2.js"></script>
 <script>
     var tpj = jQuery;
     var revapi26;
