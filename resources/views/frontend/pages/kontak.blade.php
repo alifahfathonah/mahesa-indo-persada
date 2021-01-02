@@ -61,11 +61,3 @@
 </section>
 <!-- END SECTION CONTACT US -->
 @endsection
-
-@push('scripts')
-<script src="js/leaflet.js"></script>
-<script src="js/leaflet-gesture-handling.min.js"></script>
-<script src="js/leaflet-providers.js"></script>
-<script src="js/leaflet.markercluster.js"></script>
-<script src="js/map-single.js"></script>
-@endpush
