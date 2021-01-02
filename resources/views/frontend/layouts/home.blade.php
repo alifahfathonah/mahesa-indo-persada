@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="html 5 template">
-    <meta name="author" content="">
+    <meta name="description" content="property">
+    <meta name="author" content="PT Mahesa Indo Persada">
     <title>P.T. Mahesa Indo Persada</title>
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="/assets/findhouse/images/logo-only.png">

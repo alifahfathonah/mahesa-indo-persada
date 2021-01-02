@@ -12,13 +12,13 @@
                 <div class="container">
                     <div class="top-info hidden-sm-down">
                         <div class="call-header">
-                            <p><i class="fa fa-phone" aria-hidden="true"></i> (234) 0200 17813</p>
+                            <p><i class="fa fa-phone" aria-hidden="true"></i> {{ config('constants.telpon') }}</p>
                         </div>
                         <div class="address-header">
-                            <p><i class="fa fa-map-marker" aria-hidden="true"></i> 95 South Park Ave, USA</p>
+                            <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ config('constants.alamat') }}</p>
                         </div>
                         <div class="mail-header">
-                            <p><i class="fa fa-envelope" aria-hidden="true"></i> info@findhouses.com</p>
+                            <p><i class="fa fa-envelope" aria-hidden="true"></i> {{ config('constants.mail') }}</p>
                         </div>
                     </div>
                     <div class="top-social hidden-sm-down">
@@ -62,7 +62,7 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="#">Bangunan Lainnya</a>
+                                <li><a href="#">Proyek Lainnya</a>
                                     <ul>
                                         @foreach ($bangunan_lain->all() as $index => $bangunan_lain)
                                         <li><a href="/lainnya/{{ $bangunan_lain->getKey() }}">{{ $bangunan_lain->bangunan_lain_nama }}</a></li>

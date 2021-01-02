@@ -38,7 +38,7 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li><a href="#">Bangunan Lainnya</a>
+                        <li><a href="#">Proyek Lainnya</a>
                             <ul>
                                 @foreach ($bangunan_lain->all() as $index => $bangunan_lain)
                                 <li><a href="/lainnya/{{ $bangunan_lain->getKey() }}">{{ $bangunan_lain->bangunan_lain_nama }}</a></li>
@@ -216,7 +216,8 @@
 <!-- END SECTION PARTNERS -->
 @endsection
 
-@push('scripts')<!-- ARCHIVES JS -->
+@push('scripts')
+<!-- ARCHIVES JS -->
 <script src="/assets/findhouse/js/owl.carousel.js"></script>
 <script src="/assets/findhouse/js/slick.min.js"></script>
 <script src="/assets/findhouse/js/slick3.js"></script>

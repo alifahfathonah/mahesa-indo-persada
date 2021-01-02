@@ -2,7 +2,28 @@
 
 @section('title', ' | Perumahan')
 
+@push('css')
+    <link rel="stylesheet" href="/assets/findhouse/css/swiper.min.css">
+@endpush
+
 @section('content')
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        @foreach ($data->first()->perumahan->gambar as $gambar)
+        <div class="swiper-slide">
+            <a href="{{ $gambar->perumahan_gambar }}" class="grid image-link">
+                <img src="{{ $gambar->perumahan_gambar }}" class="img-fluid" alt="#">
+            </a>
+        </div>
+        @endforeach
+    </div>
+
+    <div class="swiper-pagination swiper-pagination-white"></div>
+
+    <div class="swiper-button-next swiper-button-white mr-3"></div>
+    <div class="swiper-button-prev swiper-button-white ml-3"></div>
+</div>
+
 <!-- START SECTION PROPERTIES LISTING -->
 <section class="properties-right featured portfolio blog">
     <div class="container">
@@ -56,7 +77,48 @@
         <nav aria-label="..." class="pt-55">
             {{ $data->links() }}
         </nav>
+        <div class="floor-plan property wprt-image-video w50 pro">
+            <h5>Master Plan</h5>
+            <div style="overflow: scroll">
+                <img alt="image" src="{{ $data->first()->perumahan->perumahan_denah }}">
+            </div>
+        </div>
     </div>
+
 </section>
 <!-- END SECTION PROPERTIES LISTING -->
 @endsection
+
+@push('scripts')
+<script src="/assets/findhouse/js/swiper.min.js"></script>
+<script>
+var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 3,
+                slidesPerGroup: 1,
+                loop: true,
+                loopFillGroupWithBlank: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                        spaceBetween: 50,
+                    },
+                }
+            });
+</script>
+@endpush

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'gambar' => '/uploads/kontak/kontak.png',
     'alamat' => 'Jl. Wage Walker No. 17 Bunklotok Batujai, Praya Barat, Lombok Tengah',
     'telpon' => '0819-1728-7555 / 0823-4143-9988',
     'mail' => 'admin@mahesaindopersada.com',

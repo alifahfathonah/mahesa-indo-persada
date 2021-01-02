@@ -11,11 +11,6 @@ class KontakController extends Controller
     //
     public function frontend(Request $req)
     {
-        $kontak = Kontak::first();
-        $slider = Slider::all();
-        return view('frontend.pages.kontak', [
-            'kontak' => $kontak,
-            'slider' => $slider
-        ]);
+        return view('frontend.pages.kontak');
     }
 }

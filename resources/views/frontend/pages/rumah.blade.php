@@ -59,7 +59,7 @@
                 </div>
                 <div class="single homes-content details mb-30">
                     <!-- title -->
-                    <h5 class="mb-4">Spesifikasi</h5>
+                    <h5 class="mb-4">Ruang</h5>
                     <ul class="homes-list clearfix">
                         <li>
                             <span class="font-weight-bold mr-1">Kamar Tidur:</span>
@@ -69,11 +69,34 @@
                             <span class="font-weight-bold mr-1">Kamar Mandi:</span>
                             <span class="det">{{ $data->rumah_kamar_mandi }}</span>
                         </li>
+                        <li>
+                            <span class="font-weight-bold mr-1">Ruang Keluarga:</span>
+                            <span class="det">{{ $data->rumah_ruang_keluarga }}</span>
+                        </li>
+                        <li>
+                            <span class="font-weight-bold mr-1">Dapur:</span>
+                            <span class="det">{{ $data->rumah_dapur }}</span>
+                        </li>
+                        <li>
+                            <span class="font-weight-bold mr-1">Ruang Tamu:</span>
+                            <span class="det">{{ $data->rumah_ruang_tamu }}</span>
+                        </li>
+                    </ul>
+                    <!-- title -->
+                    <h5 class="mt-5">Fasilitas</h5>
+                    <!-- cars List -->
+                    <ul class="homes-list clearfix">
+                        @foreach ($data->fasilitas as $fasilitas)
+                        <li>
+                            <i class="fa fa-check-square" aria-hidden="true"></i>
+                            <span>{{ $fasilitas->rumah_fasilitas }}</span>
+                        </li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="floor-plan property wprt-image-video w50 pro">
                     <h5>Sketsa</h5>
-                    <img alt="image" src="{{ ($data->rumah_sektsa) }}">
+                    <img alt="image" style="width: 100%" src="{{ ($data->rumah_sketsa) }}">
                 </div>
             </div>
             <aside class="col-lg-4 col-md-12 car">

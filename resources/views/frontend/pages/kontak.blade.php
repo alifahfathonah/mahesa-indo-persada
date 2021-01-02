@@ -7,7 +7,7 @@
     <div class="text-heading text-center">
         <div class="container">
             <h1>Kontak Kami</h1>
-            <h2><a href="index.html">Home </a> &nbsp;/&nbsp; Contact Us</h2>
+            <h2><a href="/">Home </a> &nbsp;/&nbsp; Kontak Kami</h2>
         </div>
     </div>
 </section>
@@ -16,57 +16,35 @@
 <!-- START SECTION CONTACT US -->
 <section class="contact-us">
     <div class="container">
-        <div class="property-location mb-5">
-            <h3>Our Location</h3>
-            <div class="divider-fade"></div>
-            <div id="map-contact" class="contact-map"></div>
-        </div>
         <div class="row">
-            <div class="col-lg-8 col-md-12">
-                <h3 class="mb-4">Contact Us</h3>
-                <form id="contactform" class="contact-form" name="contactform" method="post" novalidate>
-                    <div id="success" class="successform">
-                        <p class="alert alert-success font-weight-bold" role="alert">Your message was sent successfully!</p>
-                    </div>
-                    <div id="error" class="errorform">
-                        <p>Something went wrong, try refreshing and submitting the form again.</p>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" required class="form-control input-custom input-full" name="name" placeholder="First Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" required class="form-control input-custom input-full" name="lastname" placeholder="Last Name">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-custom input-full" name="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control textarea-custom input-full" id="ccomment" name="message" required rows="8" placeholder="Message"></textarea>
-                    </div>
-                    <button type="submit" id="submit-contact" class="btn btn-primary btn-lg">Submit</button>
-                </form>
+            <div class="col-lg-8 col-md-12 ">
+
+        <div class="property-location mb-5">
+            <h3>Lokasi Kami</h3>
+            <div class="divider-fade"></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.6658259129326!2d116.2496042147845!3d-8.723247493733298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDMnMjMuNyJTIDExNsKwMTUnMDYuNSJF!5e0!3m2!1sen!2sid!4v1609624770735!5m2!1sen!2sid" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
             </div>
             <div class="col-lg-4 col-md-12 bgc">
                 <div class="call-info">
-                    <h3>Contact Details</h3>
-                    <p class="mb-5">Please find below contact details and contact us today!</p>
+                    <h3>Kontak Detail</h3>
                     <ul>
                         <li>
                             <div class="info">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <p class="in-p">95 South Park Ave, USA</p>
+                                <p class="in-p">{{ config('constants.alamat') }}</p>
                             </div>
                         </li>
                         <li>
                             <div class="info">
                                 <i class="fa fa-phone" aria-hidden="true"></i>
-                                <p class="in-p">+456 875 369 208</p>
+                                <p class="in-p">{{ config('constants.telpon') }}</p>
                             </div>
                         </li>
                         <li>
                             <div class="info">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                <p class="in-p ti">support@findhouses.com</p>
+                                <p class="in-p ti">{{ config('constants.mail') }}</p>
                             </div>
                         </li>
                         <li>
