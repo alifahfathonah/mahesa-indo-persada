@@ -61,7 +61,6 @@
 </header>
 <div class="clearfix"></div>
 <!-- Header Container / End -->
-
 <!-- SLIDER START -->
 <div id="rev_slider_26_1_wrapper " class="rev_slider_26_1_wrapper fullscreen-container home-rev-slider" data-alias="mask-showcase" data-source="gallery">
     <!-- START REVOLUTION SLIDER 5.4.1 fullscreen mode -->
@@ -69,9 +68,9 @@
         <ul>
             @foreach ($slider as $i => $slider)
             <!-- SLIDE 1 -->
-            <li data-index="rs-{{ $i }}" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="{{ Storage::url($slider->slider_gambar) }}" data-rotate="0" data-saveperformance="off" data-title="" data-param1="1" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+            <li data-index="rs-{{ $i }}" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="300" data-thumb="{{ ($slider->slider_gambar) }}" data-rotate="0" data-saveperformance="off" data-title="" data-param1="1" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                 <!-- MAIN IMAGE -->
-                <img src="{{ Storage::url($slider->slider_gambar) }}" data-bgcolor='#f8f8f8' style='' alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
+                <img src="{{ ($slider->slider_gambar) }}" data-bgcolor='#f8f8f8' style='' alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg" data-no-retina>
 
                 <!-- LAYERS 2 number block-->
                 <div class="tp-caption rev-btn  tp-resizeme slider-block sx-bg-primary" id="slide-{{ $i }}-layer-2" data-x="['left','left','left','center']" data-hoffset="['60','60','30','0']" data-y="['middle','middle','middle','top']" data-voffset="['-220','-220','-220','50']" data-fontweight="['600','600','600','600']" data-fontsize="['120','120','80','80']" data-lineheight="['120','120','80','80']" data-height="none" data-whitespace="nowrap" data-type="button" data-responsive_offset="on" data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},
@@ -129,7 +128,7 @@
                                 <div class="homes">
                                     <!-- homes img -->
                                     <a href="single-property-1.html" class="homes-img">
-                                        <img src="{{ $rumah->gambar->count()? Storage::url($rumah->gambar->first()->rumah_gambar): '' }}" alt="home-1" class="img-responsive">
+                                        <img src="{{ $rumah->gambar->count()? ($rumah->gambar->first()->rumah_gambar): '' }}" alt="home-1" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
@@ -193,7 +192,7 @@
                 @foreach ($moto as $moto)
                 <div _ngcontent-bgi-c3="" class="col-lg-3 col-sm-6 col-md-6 p-0">
                     <div _ngcontent-bgi-c3="" class="single-featured-box">
-                        <div _ngcontent-bgi-c3="" class="icon color-fb7756"><img src="{{ Storage::url($moto->moto_gambar) }}" width="85" height="85" alt=""></div>
+                        <div _ngcontent-bgi-c3="" class="icon color-fb7756"><img src="{{ ($moto->moto_gambar) }}" width="85" height="85" alt=""></div>
                         <h3 _ngcontent-bgi-c3="" class="mt-5">{{ $moto->moto_judul }}</h3>
                         <p _ngcontent-bgi-c3="">{{ $moto->moto_deskripsi }}</p></div>
                 </div>
@@ -209,7 +208,7 @@
     <div class="container">
         <div class="owl-carousel style3">
             @foreach ($partner as $partner)
-            <div class="owl-item"><img src="{{ Storage::url($partner->partner_gambar) }}" alt=""></div>
+            <div class="owl-item"><img src="{{ ($partner->partner_gambar) }}" alt=""></div>
             @endforeach
         </div>
     </div>

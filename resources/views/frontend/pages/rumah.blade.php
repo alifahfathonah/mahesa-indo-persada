@@ -31,7 +31,7 @@
                             <div class="carousel-inner">
                                 @foreach ($data->gambar as $i => $gambar)
                                 <div class="{{ $i == 0? 'active': '' }} item carousel-item" data-slide-number="{{ $i }}">
-                                    <img src="{{ Storage::url($gambar->rumah_gambar) }}" class="img-fluid" alt="slider-listing">
+                                    <img src="{{ ($gambar->rumah_gambar) }}" class="img-fluid" alt="slider-listing">
                                 </div>
                                 @endforeach
 
@@ -44,7 +44,7 @@
                                 @foreach ($data->gambar as $i => $gambar)
                                 <li class="list-inline-item {{ $i == 0? 'active': '' }}">
                                     <a id="carousel-selector-1" data-slide-to="{{ $i }}" data-target="#listingDetailsSlider">
-                                        <img src="{{ Storage::url($gambar->rumah_gambar) }}" class="img-fluid" alt="listing-small">
+                                        <img src="{{ ($gambar->rumah_gambar) }}" class="img-fluid" alt="listing-small">
                                     </a>
                                 </li>
                                 @endforeach
@@ -73,7 +73,7 @@
                 </div>
                 <div class="floor-plan property wprt-image-video w50 pro">
                     <h5>Sketsa</h5>
-                    <img alt="image" src="{{ Storage::url($data->rumah_sektsa) }}">
+                    <img alt="image" src="{{ ($data->rumah_sektsa) }}">
                 </div>
             </div>
             <aside class="col-lg-4 col-md-12 car">
@@ -90,7 +90,7 @@
                                         @foreach ($lainnya as $lainnya)
                                         <div class="recent-main">
                                             <div class="recent-img">
-                                                <a href="/rumah/{{ $lainnya->rumah_id }}"><img src="{{ Storage::url($lainnya->gambar->first()->rumah_gambar) }}" alt=""></a>
+                                                <a href="/rumah/{{ $lainnya->rumah_id }}"><img src="{{ ($lainnya->gambar->first()->rumah_gambar) }}" alt=""></a>
                                             </div>
                                             <div class="info-img">
                                                 <a href="/rumah/{{ $lainnya->rumah_id }}"><h6>{{ $lainnya->rumah_tipe }}</h6></a>
