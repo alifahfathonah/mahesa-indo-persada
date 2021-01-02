@@ -29,7 +29,7 @@
                                     <!-- homes img -->
                                     <a href="/rumah/{{ $rumah->rumah_id }}" class="homes-img">
                                         <div class="homes-price">Rp. {{ number_format($rumah->rumah_harga) }}</div>
-                                        <img src="{{ Storage::url($rumah->gambar->first()->rumah_gambar) }}" alt="home-1" class="img-responsive">
+                                        <img src="{{ ($rumah->gambar->first()->rumah_gambar) }}" alt="home-1" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
