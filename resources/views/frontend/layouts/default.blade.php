@@ -3,7 +3,7 @@
 <head>
 	@include('frontend.includes.head')
 </head>
-<body class="inner-pages">
+<body class="inner-pages homepage-4">
     <!-- Wrapper -->
     <div id="wrapper" class="int_main_wraapper">
 
@@ -11,7 +11,7 @@
 
 		@yield('content')
 
-        @include('frontend.includes.footer')
+        @include('frontend.includes.footer', ['warna' => ''])
         @include('frontend.includes.page-js')
     </div>
 </body>

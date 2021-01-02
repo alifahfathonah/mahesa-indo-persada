@@ -1,34 +1,34 @@
 
 <!-- START FOOTER -->
-<footer class="first-footer">
-    <div class="top-footer bg-white-2">
+<footer class="first-footer ">
+    <div class="top-footer {{ $warna }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="netabout">
                         <a href="/">
-                            <img src="assets/findhouse/images/logo.png" style="width: 500px" alt="netcom">
+                            <img src="/assets/findhouse/images/logo.png" style="width: 500px" alt="netcom">
                         </a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt architecto soluta laboriosam, perspiciatis, aspernatur officiis esse.</p>
+                        <p>{{ config('constants.tentang') }}</p>
                     </div>
                     <div class="contactus">
                         <ul>
                             <li>
                                 <div class="info">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <p class="in-p">95 South Park Avenue, USA</p>
+                                    <p class="in-p">{{ config('constants.alamat') }}</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="info">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <p class="in-p">+456 875 369 208</p>
+                                    <p class="in-p">{{ config('constants.telpon') }}</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="info">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <p class="in-p ti">support@findhouses.com</p>
+                                    <p class="in-p ti">{{ config('constants.mail') }}</p>
                                 </div>
                             </li>
                         </ul>
@@ -37,10 +37,9 @@
             </div>
         </div>
     </div>
-    <div class="second-footer bg-white-1">
+    <div class="second-footer">
         <div class="container">
-            <p>2020 © Copyright - All Rights Reserved.</p>
-            <p>Made With <i class="fa fa-heart" aria-hidden="true"></i> By Code-Theme</p>
+            <p class="text-white">2020 © Copyright - All Rights Reserved.</p>
         </div>
     </div>
 </footer>

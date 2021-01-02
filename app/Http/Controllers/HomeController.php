@@ -2,27 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Moto;
+use App\Rumah;
+use App\Slider;
+use App\Partner;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function frontend(Request $req)
     {
-        $this->middleware('auth');
+        $slider = Slider::take(5)->get();
+        $rumah = Rumah::with('gambar')->take(15)->orderBy('created_at', 'desc')->get();
+        $partner = Partner::all();
+        $moto = Moto::all();
+        return view('frontend.pages.beranda', [
+            'slider' => $slider,
+            'partner' => $partner,
+            'rumah' => $rumah,
+            'moto' => $moto
+        ]);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function backend(Request $req)
     {
-        return view('home');
+        return view('backend.pages.beranda');
     }
 }

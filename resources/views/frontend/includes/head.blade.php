@@ -5,22 +5,22 @@
 <meta name="author" content="">
 <title>P.T. Mahesa Indo Persada</title>
 <!-- FAVICON -->
-<link rel="shortcut icon" type="image/x-icon" href="assets/findhouse/images/logo-only.png">
-<link rel="stylesheet" href="assets/findhouse/css//jquery-ui.css">
+<link rel="shortcut icon" type="image/x-icon" href="/assets/findhouse/images/logo-only.png">
+<link rel="stylesheet" href="/assets/findhouse/css//jquery-ui.css">
 <!-- GOOGLE FONTS -->
 <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i%7CMontserrat:600,800" rel="stylesheet">
 <!-- FONT AWESOME -->
-<link rel="stylesheet" href="assets/findhouse/css/fontawesome-all.min.css">
-<link rel="stylesheet" href="assets/findhouse/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/findhouse/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/findhouse/css/font-awesome.min.css">
 <!-- Slider Revolution CSS Files -->
-<link rel="stylesheet" href="assets/findhouse/revolution/css/settings.css">
-<link rel="stylesheet" href="assets/findhouse/revolution/css/layers.css">
-<link rel="stylesheet" href="assets/findhouse/revolution/css/navigation.css">
+<link rel="stylesheet" href="/assets/findhouse/revolution/css/settings.css">
+<link rel="stylesheet" href="/assets/findhouse/revolution/css/layers.css">
+<link rel="stylesheet" href="/assets/findhouse/revolution/css/navigation.css">
 <!-- ARCHIVES CSS -->
-<link rel="stylesheet" href="assets/findhouse/css/bootstrap.css">
-<link rel="stylesheet" href="assets/findhouse/css/menu.css">
-<link rel="stylesheet" href="assets/findhouse/css/slick.css">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" id="color" href="assets/default.css">
+<link rel="stylesheet" href="/assets/findhouse/css/bootstrap.css">
+<link rel="stylesheet" href="/assets/findhouse/css/menu.css">
+<link rel="stylesheet" href="/assets/findhouse/css/slick.css">
+<link rel="stylesheet" href="/assets/findhouse/css/styles.css">
+<link rel="stylesheet" id="color" href="/assets/findhouse/css/default.css">
 
 @stack('css')
