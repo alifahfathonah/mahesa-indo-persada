@@ -6,6 +6,7 @@ use App\Http\Controllers\RumahController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PerumahanController;
+use App\Http\Controllers\TentangkamiController;
 use App\Http\Controllers\BangunanlainController;
 
 /*
@@ -18,9 +19,6 @@ use App\Http\Controllers\BangunanlainController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [HomeController::class, 'frontend']);
-Route::get('/kontak', [KontakController::class, 'frontend']);
-
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'admin-area'], function () {
@@ -28,6 +26,9 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
+Route::get('/', [HomeController::class, 'frontend']);
+Route::get('/tentangkami', [TentangkamiController::class, 'frontend']);
+Route::get('/kontak', [KontakController::class, 'frontend']);
 Route::get('/home', [HomeController::class, 'frontend'])->name('home');
 Route::get('/perumahan/{id}', [PerumahanController::class, 'frontend'])->name('home');
 Route::get('/rumah/{id}', [RumahController::class, 'frontend'])->name('home');

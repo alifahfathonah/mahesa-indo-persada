@@ -11,6 +11,8 @@ class KontakController extends Controller
     //
     public function frontend(Request $req)
     {
-        return view('frontend.pages.kontak');
+        return view('frontend.pages.kontak', [
+            'data' => Kontak::get()->first()
+        ]);
     }
 }

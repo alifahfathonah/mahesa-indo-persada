@@ -1,4 +1,5 @@
 
+@inject('kontak', 'App\Kontak')
 <!-- START FOOTER -->
 <footer class="first-footer ">
     <div class="top-footer {{ $warna }}">
@@ -9,26 +10,26 @@
                         <a href="/">
                             <img src="/assets/findhouse/images/logo.png" style="width: 500px" alt="netcom">
                         </a>
-                        <p>{{ config('constants.tentang') }}</p>
+                        <p class="in-p">{{ $kontak->first()->kontak_tentang }}</p>
                     </div>
                     <div class="contactus">
                         <ul>
                             <li>
                                 <div class="info">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                    <p class="in-p">{{ config('constants.alamat') }}</p>
+                                    <p class="in-p">{{ $kontak->first()->kontak_alamat }}</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="info">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
-                                    <p class="in-p">{{ config('constants.telpon') }}</p>
+                                    <p class="in-p">{{ $kontak->first()->kontak_telpon }}</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="info">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <p class="in-p ti">{{ config('constants.mail') }}</p>
+                                    <p class="in-p">{{ $kontak->first()->kontak_email }}</p>
                                 </div>
                             </li>
                         </ul>
