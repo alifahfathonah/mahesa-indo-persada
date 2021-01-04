@@ -17,25 +17,11 @@
 <!-- START SECTION ABOUT -->
 <section class="about-us">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-12 who-1">
-                <div>
-                    <h2 class="text-left mb-4">Tentang <span>PT Mahesa Indo Persada</span></h2>
-                </div>
-                <div class="pftext">
-                    <p>{{ $data->tentang_kami_text }}</p>
-                </div>
-                <div class="box bg-2">
-                    <a href="about.html" class="text-center button button--moema button--text-thick button--text-upper button--size-s">read More</a>
-                    <img src="images/signature.png" class="ml-5" alt="">
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-12 who">
-                <div class="wprt-image-video w50">
-                    <img alt="image" src="images/projects/welcome.jpg">
-                    <a class="icon-wrap popup-video popup-youtube" href="https://www.youtube.com/watch?v=2xHQqYRcrx4"></a>
-                </div>
-            </div>
+        <div>
+            <h2 class="text-left mb-4">Tentang <span>PT Mahesa Indo Persada</span></h2>
+        </div>
+        <div class="pftext">
+            {!! $data->tentang_kami_text !!}
         </div>
     </div>
 </section>
