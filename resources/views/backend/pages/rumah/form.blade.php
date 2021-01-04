@@ -28,16 +28,16 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="control-label">Tipe</label>
-                                        <input class="form-control" type="text" name="rumah_judul" value="{{ old('rumah_judul')? old('rumah_judul'): ($aksi == "Edit"? $data->rumah_judul: "") }}" autocomplete="off" id="rumah_judul" data-parsley-minlength="2" required />
+                                        <input class="form-control" type="text" name="rumah_tipe" value="{{ old('rumah_tipe')? old('rumah_tipe'): ($aksi == "Edit"? $data->rumah_tipe: "") }}" autocomplete="off" id="rumah_tipe" data-parsley-minlength="2" required />
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Deskripsi</label>
                                         <textarea class="form-control" name="rumah_deskripsi">{{ old('rumah_deskripsi')? old('rumah_deskripsi'): ($aksi == "Edit"? $data->rumah_deskripsi: "") }}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="control-label">Kategori</label>
+                                        <label for="control-label">Perumahan</label>
                                         <select class="form-control selectpicker" name="perumahan_id" data-live-search="true" data-style="btn-aqua" data-size="3" data-width="100%">
-                                            <option value="">-- Tidak Ada Kategori --</option>
+                                            <option value="">-- Tidak Ada Perumahan --</option>
                                             @foreach($perumahan as $row)
                                             @php
                                                 $selected = '';
@@ -56,11 +56,11 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label">Gambar Utama</label>
-                                        <input class="form-control" type="file" name="rumah_gambar" accept="image/x-png,image/gif,image/jpeg" {{ $aksi == "Edit"? "": "required" }} autocomplete="off" />
+                                        <label class="control-label">Sketsa</label>
+                                        <input class="form-control" type="file" name="rumah_sketsa" accept="image/x-png,image/gif,image/jpeg" {{ $aksi == "Edit"? "": "required" }} autocomplete="off" />
                                     </div>
                                     @if ($aksi == 'Edit')
-                                    <a href="{{ $data->rumah_gambar }}" target="_blank">Gambar Lama</a>
+                                    <a href="{{ $data->rumah_sketsa }}" target="_blank">Sketsa Lama</a>
                                     @endif
 
                                 </div>
