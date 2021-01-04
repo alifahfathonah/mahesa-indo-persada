@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RumahController;
 use App\Http\Controllers\KontakController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PerumahanController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TentangkamiController;
 use App\Http\Controllers\BangunanlainController;
 
@@ -20,9 +20,31 @@ use App\Http\Controllers\BangunanlainController;
 |
 */
 
-Route::group(['middleware' => ['auth']], function () {
-    Route::group(['prefix' => 'admin-area'], function () {
-        Route::get('/', [HomeController::class, 'backend']);
+Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::group(['prefix' => 'admin-area'], function () {
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('/', [HomeController::class,'backend']);
+        Route::get('/home', [HomeController::class,'backend']);
+        Route::patch('/gantisandi', [PenggunaController::class, 'ganti_sandi'])->name('gantisandi');
+
+        Route::prefix('perumahan')->group(function () {
+            Route::get('/', [PerumahanController::class, 'backend'])->name('perumahan');
+            Route::get('/tambah', [PerumahanController::class, 'tambah'])->name('perumahan.tambah');
+            Route::get('/edit', [PerumahanController::class, 'edit'])->name('perumahan.edit');
+            Route::post('/simpan', [PerumahanController::class, 'simpan'])->name('perumahan.simpan');
+            Route::delete('/hapus', [PerumahanController::class, 'hapus']);
+        });
+
+        Route::prefix('rumah')->group(function () {
+            Route::get('/', [RumahController::class, 'backend'])->name('rumah');
+            Route::get('/tambah', [RumahController::class, 'tambah'])->name('rumah.tambah');
+            Route::get('/edit', [RumahController::class, 'edit'])->name('rumah.edit');
+            Route::post('/simpan', [RumahController::class, 'simpan'])->name('rumah.simpan');
+            Route::delete('/hapus', [RumahController::class, 'hapus']);
+        });
     });
 });
 

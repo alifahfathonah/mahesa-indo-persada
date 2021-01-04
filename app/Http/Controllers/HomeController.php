@@ -26,6 +26,6 @@ class HomeController extends Controller
 
     public function backend(Request $req)
     {
-        return view('backend.pages.beranda');
+        return view('backend.pages.home.index');
     }
 }

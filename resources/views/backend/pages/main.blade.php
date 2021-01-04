@@ -27,5 +27,5 @@
 
 @push('scripts')
 <!-- Sparkline -->
-<script src="/plugins/sparklines/sparkline.js"></script>
+<script src="/assets/admin-lte/plugins/sparklines/sparkline.js"></script>
 @endpush

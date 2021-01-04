@@ -62,7 +62,7 @@ class LoginController extends Controller
         }
 
         if (Auth::attempt(['pengguna_id' => $req->uid, 'password' => $req->kata_sandi])) {
-            return redirect()->intended('dashboard');
+            return redirect('admin-area');
         }
 
         alert()->error('Login Gagal','User ID atau Kata Sandi salah');
