@@ -67,7 +67,6 @@
         </div>
     </div>
 
-    @include('sweetalert::alert')
     <!-- /.login-box -->
 
     <!-- jQuery -->
