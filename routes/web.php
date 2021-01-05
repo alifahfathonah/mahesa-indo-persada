@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RumahController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PerumahanController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TentangkamiController;
@@ -38,12 +40,28 @@ Route::group(['prefix' => 'admin-area'], function () {
             Route::delete('/hapus', [PerumahanController::class, 'hapus']);
         });
 
+        Route::prefix('slider')->group(function () {
+            Route::get('/', [SliderController::class, 'backend'])->name('slider');
+            Route::get('/tambah', [SliderController::class, 'tambah'])->name('slider.tambah');
+            Route::post('/simpan', [SliderController::class, 'simpan'])->name('slider.simpan');
+            Route::delete('/hapus', [SliderController::class, 'hapus']);
+        });
+
+        Route::prefix('partner')->group(function () {
+            Route::get('/', [PartnerController::class, 'backend'])->name('partner');
+            Route::get('/tambah', [PartnerController::class, 'tambah'])->name('partner.tambah');
+            Route::post('/simpan', [PartnerController::class, 'simpan'])->name('partner.simpan');
+            Route::delete('/hapus', [PartnerController::class, 'hapus']);
+        });
+
         Route::prefix('rumah')->group(function () {
             Route::get('/', [RumahController::class, 'backend'])->name('rumah');
             Route::get('/tambah', [RumahController::class, 'tambah'])->name('rumah.tambah');
             Route::get('/edit', [RumahController::class, 'edit'])->name('rumah.edit');
             Route::post('/simpan', [RumahController::class, 'simpan'])->name('rumah.simpan');
             Route::delete('/hapus', [RumahController::class, 'hapus']);
+            Route::view('/gambar', 'backend.pages.rumah.gambar', ['id' => date('Hisu')]);
+            Route::view('/fasilitas', 'backend.pages.rumah.fasilitas', ['id' => date('Hisu')]);
         });
     });
 });

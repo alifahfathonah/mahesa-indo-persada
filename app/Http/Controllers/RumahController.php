@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Rumah;
 use App\Perumahan;
+use App\RumahGambar;
+use App\RumahFasilitas;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class RumahController extends Controller
 {
@@ -46,38 +50,48 @@ class RumahController extends Controller
             'rumah_tipe' => 'required'
         ]);
 
-        try{
-            if ($req->get('ID')) {
-                $data = Rumah::findOrFail($req->get('ID'));
-                $data->rumah_tipe = $req->get('rumah_tipe');
-                $data->rumah_deskripsi = $req->get('rumah_deskripsi');
-                $data->rumah_alamat = $req->get('rumah_alamat');
-
-                if($req->file('rumah_denah')){
-                    File::delete(public_path($data->rumah_denah));
-                    $file = $req->file('rumah_denah');
-
-                    $ext = $file->getClientOriginalExtension();
-                    $nama_file = time().Str::random().".".$ext;
-                    $file->move(public_path('uploads/rumah'), $nama_file);
-                    $data->rumah_denah = '/uploads/rumah/'.$nama_file;
-                }
-
-                $data->save();
-            }else{
-                $file = $req->file('rumah_denah');
+        try
+        {
+            DB::transaction(function () {
+                $file = $req->file('rumah_sketsa');
 
                 $ext = $file->getClientOriginalExtension();
                 $nama_file = time().Str::random().".".$ext;
                 $file->move(public_path('uploads/rumah'), $nama_file);
 
                 $data = new Rumah();
+                $data->perumahan_id = $req->get('perumahan_id');
                 $data->rumah_tipe = $req->get('rumah_tipe');
+                $data->rumah_harga = $req->get('rumah_harga');
                 $data->rumah_deskripsi = $req->get('rumah_deskripsi');
-                $data->rumah_denah = '/uploads/rumah/'.$nama_file;
-                $data->rumah_alamat = $req->get('rumah_alamat');
+                $data->rumah_sketsa = $req->get('rumah_sketsa');
+                $data->rumah_kamar = $req->get('rumah_kamar');
+                $data->rumah_kamar_mandi = $req->get('rumah_kamar_mandi');
+                $data->rumah_ruang_keluarga = $req->get('rumah_ruang_keluarga');
+                $data->rumah_dapur = $req->get('rumah_dapur');
+                $data->rumah_ruang_tamu = $req->get('rumah_ruang_tamu');
+                $data->rumah_sketsa = '/uploads/rumah/'.$nama_file;
                 $data->save();
-            }
+                foreach ($req->rumah_fasilitas as $fasilitas) {
+                    $fas = new RumahFasilitas();
+                    $fas->rumah_id = $data->rumah_id;
+                    $fas->rumah_fasilitas = $fasilitas;
+                    $fas->save();
+                }
+
+                $rumah_gambar = $req->file('rumah_gambar');
+
+                foreach ($rumah_gambar as $gambar) {
+                    $ext_gambar = $gambar->getClientOriginalExtension();
+                    $nama_gambar = time().Str::random().".".$ext_gambar;
+                    $gambar->move(public_path('uploads/rumah'), $nama_gambar);
+
+                    $fas = new RumahGambar();
+                    $fas->rumah_id = $data->rumah_id;
+                    $fas->rumah_gambar = '/uploads/rumah/'.$nama_gambar;
+                    $fas->save();
+                }
+            });
             return redirect($req->get('redirect')? $req->get('redirect'): 'admin-area/rumah');
 		}catch(\Exception $e){
             return redirect()->back()->withInput()->withErrors('Gagal Menyimpan Data. '.$e->getMessage());
@@ -98,7 +112,10 @@ class RumahController extends Controller
 	{
 		try{
             $data = Rumah::findOrFail($req->get('id'));
-            File::delete(public_path($data->rumah_denah));
+            File::delete(public_path($data->rumah_sketsa));
+            foreach ($data->gambar as $gambar) {
+                File::delete(public_path($gambar->rumah_gambar));
+            }
             $data->delete();
 		}catch(\Exception $e){
             return redirect()->back()->withInput()->withErrors('Gagal Menghapus Data. '.$e->getMessage());

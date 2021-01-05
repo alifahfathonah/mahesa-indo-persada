@@ -52,7 +52,6 @@
                                             <div class="btn-group">
                                             </div>
                                             <div class="btn-group">
-                                                <a href="{{ route('rumah.edit', array('id' => $row->rumah_id)) }}" class="btn btn-info"> Edit</a>
                                                 <a href="javascript:;" data-id="{{ $row->rumah_id }}" data-no="{{ $i }}" class="btn-danger btn btn-hapus" > Hapus</a>
                                             </div>
                                         </td>

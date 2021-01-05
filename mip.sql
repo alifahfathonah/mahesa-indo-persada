@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : Localhost 57
  Source Server Type    : MySQL
  Source Server Version : 50724
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50724
  File Encoding         : 65001
 
- Date: 04/01/2021 06:06:42
+ Date: 05/01/2021 10:52:49
 */
 
 SET NAMES utf8mb4;
@@ -26,6 +26,7 @@ CREATE TABLE `bangunan_lain`  (
   `bangunan_lain_nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `bangunan_lain_deskripsi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `bangunan_lain_alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `bangunan_lain_sketsa` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`bangunan_lain_id`) USING BTREE
@@ -34,9 +35,9 @@ CREATE TABLE `bangunan_lain`  (
 -- ----------------------------
 -- Records of bangunan_lain
 -- ----------------------------
-INSERT INTO `bangunan_lain` VALUES (1, 'Origin Hotel Kuta Lombok', 'Origin Hotel Kuta Lombok', 'Kuta Lombok', NULL, NULL);
-INSERT INTO `bangunan_lain` VALUES (2, 'Ananda Villa Kuta lombok / Bliz Villa', 'Ananda Villa Kuta lombok / Bliz Villa', 'Kuta Lombok', NULL, NULL);
-INSERT INTO `bangunan_lain` VALUES (3, 'Selong180 jabon selong belanak', 'Selong180 jabon selong belanak', 'Selong Belanak', NULL, NULL);
+INSERT INTO `bangunan_lain` VALUES (1, 'Origin Hotel Kuta Lombok', 'Origin Hotel Kuta Lombok', 'Kuta Lombok', NULL, NULL, NULL);
+INSERT INTO `bangunan_lain` VALUES (2, 'Ananda Villa Kuta lombok / Bliz Villa', 'Ananda Villa Kuta lombok / Bliz Villa', 'Kuta Lombok', NULL, NULL, NULL);
+INSERT INTO `bangunan_lain` VALUES (3, 'Selong180 jabon selong belanak', 'Selong180 jabon selong belanak', 'Selong Belanak', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for bangunan_lain_gambar
@@ -149,7 +150,7 @@ CREATE TABLE `partner`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`partner_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of partner
@@ -190,7 +191,7 @@ CREATE TABLE `perumahan`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`perumahan_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of perumahan
@@ -240,10 +241,8 @@ CREATE TABLE `rumah`  (
   `perumahan_id` bigint(20) NULL DEFAULT NULL,
   `rumah_tipe` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `rumah_harga` decimal(15, 2) NULL DEFAULT NULL,
-  `rumah_spesifikasi` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `rumah_deskripsi` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `rumah_sketsa` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `rumah_video` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `rumah_kamar` int(11) NULL DEFAULT NULL,
   `rumah_kamar_mandi` int(11) NULL DEFAULT NULL,
   `rumah_ruang_keluarga` int(11) NULL DEFAULT NULL,
@@ -254,23 +253,25 @@ CREATE TABLE `rumah`  (
   PRIMARY KEY (`rumah_id`) USING BTREE,
   INDEX `perumahan_id`(`perumahan_id`) USING BTREE,
   CONSTRAINT `rumah_ibfk_1` FOREIGN KEY (`perumahan_id`) REFERENCES `perumahan` (`perumahan_id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of rumah
 -- ----------------------------
-INSERT INTO `rumah` VALUES (1, 1, 'Tipe 63/117', 500000000.00, NULL, 'Rumah tipe 63/117 siap huni', '/uploads/rumah/63sket.jpeg', NULL, 2, 1, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `rumah` VALUES (2, 1, 'Tipe 136/100', 500000000.00, NULL, 'Rumah tipe 136/100 siap huni', '/uploads/rumah/136sket.jpeg', NULL, 2, 1, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `rumah` VALUES (3, 1, 'Tipe 45/110', 500000000.00, NULL, 'Rumah tipe 45/110 siap huni', '/uploads/rumah/45sket.jpeg', NULL, 2, 1, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `rumah` VALUES (4, 1, 'Tipe 30/100', 500000000.00, NULL, 'Rumah tipe 30/100 siap huni', '/uploads/rumah/30sket.jpeg', NULL, 2, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `rumah` VALUES (1, 1, 'Tipe 63/117', 500000000.00, 'Rumah tipe 63/117 siap huni', '/uploads/rumah/63sket.jpeg', 2, 1, 1, 1, 1, NULL, NULL);
+INSERT INTO `rumah` VALUES (2, 1, 'Tipe 136/100', 500000000.00, 'Rumah tipe 136/100 siap huni', '/uploads/rumah/136sket.jpeg', 2, 1, 1, 1, 1, NULL, NULL);
+INSERT INTO `rumah` VALUES (3, 1, 'Tipe 45/110', 500000000.00, 'Rumah tipe 45/110 siap huni', '/uploads/rumah/45sket.jpeg', 2, 1, 1, 1, 1, NULL, NULL);
+INSERT INTO `rumah` VALUES (4, 1, 'Tipe 30/100', 500000000.00, 'Rumah tipe 30/100 siap huni', '/uploads/rumah/30sket.jpeg', 2, 1, 1, 1, 1, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for rumah_fasilitas
 -- ----------------------------
 DROP TABLE IF EXISTS `rumah_fasilitas`;
 CREATE TABLE `rumah_fasilitas`  (
-  `rumah_id` bigint(20) NULL DEFAULT NULL,
-  `rumah_fasilitas` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL
+  `rumah_id` bigint(20) NOT NULL,
+  `rumah_fasilitas` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  INDEX `rumah_id`(`rumah_id`) USING BTREE,
+  CONSTRAINT `rumah_fasilitas_ibfk_1` FOREIGN KEY (`rumah_id`) REFERENCES `rumah` (`rumah_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -299,8 +300,7 @@ INSERT INTO `rumah_fasilitas` VALUES (4, 'Water Heater');
 DROP TABLE IF EXISTS `rumah_gambar`;
 CREATE TABLE `rumah_gambar`  (
   `rumah_id` bigint(20) NOT NULL,
-  `rumah_gambar` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  PRIMARY KEY (`rumah_id`) USING BTREE
+  `rumah_gambar` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -310,6 +310,10 @@ INSERT INTO `rumah_gambar` VALUES (1, '/uploads/rumah/63.jpeg');
 INSERT INTO `rumah_gambar` VALUES (2, '/uploads/rumah/136.jpeg');
 INSERT INTO `rumah_gambar` VALUES (3, '/uploads/rumah/45.jpeg');
 INSERT INTO `rumah_gambar` VALUES (4, '/uploads/rumah/30.jpeg');
+INSERT INTO `rumah_gambar` VALUES (6, '/uploads/rumah/1609812723z4DAu2npzcLH4xZP.png');
+INSERT INTO `rumah_gambar` VALUES (7, '/uploads/rumah/1609812755Ffk9NOAs0syNyiLD.png');
+INSERT INTO `rumah_gambar` VALUES (8, '/uploads/rumah/1609812774P4dCHs6HJmcpJhNw.png');
+INSERT INTO `rumah_gambar` VALUES (8, '/uploads/rumah/1609812774OKewvtDiH61CZeO0.jpg');
 
 -- ----------------------------
 -- Table structure for service
@@ -345,7 +349,7 @@ CREATE TABLE `slider`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`slider_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of slider
@@ -365,6 +369,11 @@ CREATE TABLE `tentang_kami`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`tentang_kami_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tentang_kami
+-- ----------------------------
+INSERT INTO `tentang_kami` VALUES (1, NULL, 'test', NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
