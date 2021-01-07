@@ -10,6 +10,7 @@ use App\Http\Controllers\PerumahanController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TentangkamiController;
 use App\Http\Controllers\BangunanlainController;
+use App\Http\Controllers\MotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,12 @@ use App\Http\Controllers\BangunanlainController;
 |
 */
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('login');
-Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
-Route::group(['prefix' => 'admin-area'], function () {
-    Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['prefix' => 'admin-area'], function () {
         Route::get('/', [HomeController::class,'backend']);
         Route::get('/home', [HomeController::class,'backend']);
         Route::patch('/gantisandi', [PenggunaController::class, 'ganti_sandi'])->name('gantisandi');
@@ -38,6 +39,7 @@ Route::group(['prefix' => 'admin-area'], function () {
             Route::get('/edit', [PerumahanController::class, 'edit'])->name('perumahan.edit');
             Route::post('/simpan', [PerumahanController::class, 'simpan'])->name('perumahan.simpan');
             Route::delete('/hapus', [PerumahanController::class, 'hapus']);
+            Route::view('/gambar', 'backend.pages.perumahan.gambar', ['id' => date('Hisu'), 'sumber' => null]);
         });
 
         Route::prefix('slider')->group(function () {
@@ -60,8 +62,19 @@ Route::group(['prefix' => 'admin-area'], function () {
             Route::get('/edit', [RumahController::class, 'edit'])->name('rumah.edit');
             Route::post('/simpan', [RumahController::class, 'simpan'])->name('rumah.simpan');
             Route::delete('/hapus', [RumahController::class, 'hapus']);
-            Route::view('/gambar', 'backend.pages.rumah.gambar', ['id' => date('Hisu')]);
-            Route::view('/fasilitas', 'backend.pages.rumah.fasilitas', ['id' => date('Hisu')]);
+            Route::view('/gambar', 'backend.pages.rumah.gambar', ['id' => date('Hisu'), 'sumber' => null]);
+            Route::view('/fasilitas', 'backend.pages.rumah.fasilitas', ['id' => date('Hisu'), 'sumber' => null]);
+        });
+
+        Route::prefix('moto')->group(function () {
+            Route::get('/', [MotoController::class, 'backend'])->name('moto');
+            Route::post('/simpan', [MotoController::class, 'simpan'])->name('moto.simpan');
+            Route::view('/point', 'backend.pages.moto.point', ['id' => date('Hisu'), 'sumber' => null]);
+        });
+
+        Route::prefix('kontak')->group(function () {
+            Route::get('/', [KontakController::class, 'backend'])->name('kontak');
+            Route::post('/simpan', [KontakController::class, 'simpan'])->name('kontak.simpan');
         });
     });
 });

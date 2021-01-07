@@ -170,13 +170,13 @@
 <!-- END SECTION TOP LOCATIONS -->
 
 <!-- START SECTION INFO-HELP -->
-<section class="info-help h18">
+<section class="info-help h18" style="background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0.1))), url({{ $intro->kalimat_gambar }}) no-repeat scroll center center !important;">
     <div class="container">
         <div class="row info-head">
             <div class="col-lg-12 col-md-8 col-xs-8">
                 <div class="info-text">
-                    <h3 class="text-center mb-0">Moto Kami</h3>
-                    <p class="text-center mb-4 p-0">Kami menawarkan property yang terbaik dan ternyaman</p>
+                    <h3 class="text-center mb-0">{{ $intro->kalimat_judul }}</h3>
+                    <p class="text-center mb-4 p-0">{{ $intro->kalimat_text }}</p>
                 </div>
             </div>
         </div>
@@ -208,7 +208,7 @@
     <div class="container">
         <div class="owl-carousel style3">
             @foreach ($partner as $partner)
-            <div class="owl-item"><img src="{{ ($partner->partner_gambar) }}" alt=""></div>
+            <div class="owl-item"><a href="{{ $partner->partner_link }}" target="_blank"><img src="{{ ($partner->partner_gambar) }}" alt="" style="width: 150px"></a></div>
             @endforeach
         </div>
     </div>

@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/admin-area/rumah/tambah" class="btn btn-sm btn-primary">Tambah</a>
+                        <a href="/admin-area/rumah/tambah" class="btn btn-primary">Tambah</a>
                         <div class="card-tools">
                             <form action="/admin-area/rumah" method="GET">
                                 <div class="input-group input-group" style="width: 150px;">
@@ -52,6 +52,7 @@
                                             <div class="btn-group">
                                             </div>
                                             <div class="btn-group">
+                                                <a href="/admin-area/rumah/edit?id={{ $row->rumah_id }}" class="btn btn-success">Edit</a>
                                                 <a href="javascript:;" data-id="{{ $row->rumah_id }}" data-no="{{ $i }}" class="btn-danger btn btn-hapus" > Hapus</a>
                                             </div>
                                         </td>

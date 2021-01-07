@@ -3,7 +3,7 @@
 @section('title', ' | Kontak Kami')
 
 @section('content')
-<section class="headings">
+<section class="headings" style="background: linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url({{ $data->kontak_gambar }}) no-repeat center center !important;">
     <div class="text-heading text-center">
         <div class="container">
             <h1>Kontak Kami</h1>
@@ -25,7 +25,7 @@
             {!! $data->kontak_peta !!}
         </div>
             </div>
-            <div class="col-lg-4 col-md-12 bgc">
+            <div class="col-lg-4 col-md-12 bgc" style="background: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 51, 100, 0.8)), to(rgba(32, 51, 100, 0.8))), url() no-repeat center center !important;">
                 <div class="call-info">
                     <h3>Kontak Detail</h3>
                     <ul>

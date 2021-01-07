@@ -1,10 +1,6 @@
-@extends('pages.main')
+@extends('backend.pages.main')
 
 @section('title', ' | Kontak')
-
-@push('css')
-<link rel="stylesheet" href="/plugins/summernote/summernote-bs4.css">
-@endpush
 
 @section('page')
 <li class="breadcrumb-item">Kontak</li>
@@ -25,11 +21,37 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input type="hidden" name="halaman_jenis" value="kontak" required />
                                     <div class="form-group">
-                                        <textarea class="textarea" name="halaman_uraian">{{ old('halaman_uraian')? old('halaman_uraian'): ($data ? $data->halaman_uraian: "") }}</textarea>
+                                        <label>Deskripsi Singkat</label>
+                                        <textarea class="form-control" name="kontak_tentang">{{ old('kontak_tentang')? old('kontak_tentang'): ($data ? $data->kontak_tentang: "") }}</textarea>
                                     </div>
-                                    @include('includes.component.error')
+                                    <div class="form-group">
+                                        <label class="control-label">Alamat</label>
+                                        <input class="form-control" type="text" name="kontak_alamat" value="{{ old('kontak_alamat')? old('kontak_alamat'): ($data ? $data->kontak_alamat: "") }}" required autocomplete="off" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Telpon</label>
+                                        <input class="form-control" type="text" name="kontak_telpon" value="{{ old('kontak_telpon')? old('kontak_telpon'): ($data ? $data->kontak_telpon: "") }}" required autocomplete="off" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Email</label>
+                                        <input class="form-control" type="text" name="kontak_email" value="{{ old('kontak_email')? old('kontak_email'): ($data ? $data->kontak_email: "") }}" required autocomplete="off" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Jam Kerja</label>
+                                        <input class="form-control" type="text" name="kontak_jam_kerja" value="{{ old('kontak_jam_kerja')? old('kontak_jam_kerja'): ($data ? $data->kontak_jam_kerja: "") }}" required autocomplete="off" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Peta</label>
+                                        <input class="form-control" type="text" name="kontak_peta" value="{{ old('kontak_peta')? old('kontak_peta'): ($data ? $data->kontak_peta: "") }}" required autocomplete="off" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Background</label>
+                                        <input class="form-control" type="file" name="kontak_gambar" accept="image/*" autocomplete="off" />
+                                    </div>
+                                    @if ($data)
+                                    <a href="{{ $data->kontak_gambar }}" target="_blank">Background</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -38,19 +60,9 @@
                         </div>
                     </div>
                 </form>
+                @include('backend.includes.component.error')
             </div>
         </div>
     </div>
 </section>
 @endsection
-
-@push('scripts')
-<script src="/plugins/summernote/summernote-bs4.min.js"></script>
-<script>
-    $(function () {
-        $('.textarea').summernote({
-            height: 400
-        })
-    })
-</script>
-@endpush

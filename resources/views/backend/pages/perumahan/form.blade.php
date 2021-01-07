@@ -26,7 +26,7 @@
                                 @if($aksi == 'Edit')
                                 <input type="hidden" name="ID" value="{{ $data->perumahan_id }}">
                                 @endif
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Nama Perumahan</label>
                                         <input class="form-control" type="text" name="perumahan_nama" value="{{ old('perumahan_nama')? old('perumahan_nama'): ($aksi == "Edit"? $data->perumahan_nama: "") }}" autocomplete="off" id="perumahan_nama" data-parsley-minlength="2" required />
@@ -48,6 +48,21 @@
                                     @endif
                                     @include('backend.includes.component.error')
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="alert alert-danger">
+                                        <h3>Gambar</h3>
+                                        <hr>
+                                        <div id="gambar">
+                                            @foreach ($data->gambar as $i => $row)
+                                            @include('backend.pages.perumahan.gambar', [
+                                                'id' => $i,
+                                                'sumber' => 'edit'
+                                            ])
+                                            @endforeach
+                                        </div>
+                                        <button class="btn btn-outline-secondary btn-default" onclick="tambah_gambar()" type="button">Tambah</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer form-inline">
@@ -57,8 +72,23 @@
                         </div>
                     </div>
                 </form>
+                @include('backend.includes.component.error')
             </div>
         </div>
     </div>
 </section>
 @endsection
+
+@push('scripts')
+<script>
+    function tambah_gambar(){
+        $.get("/admin-area/perumahan/gambar", function(data, status){
+            $("#gambar").append(data);
+        });
+    }
+
+    function hapus(id) {
+        $("#" + id).remove();
+    }
+</script>
+@endpush

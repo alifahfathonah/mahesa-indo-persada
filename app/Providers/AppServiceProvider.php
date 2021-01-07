@@ -15,9 +15,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        App::bind('path.public', function() {
-            return base_path().'/public_html';
-        });
     }
 
     /**

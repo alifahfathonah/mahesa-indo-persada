@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Sketsa</label>
-                                        <input class="form-control" type="file" name="rumah_sketsa" accept="image/x-png,image/gif,image/jpeg" {{ $aksi == "Edit"? "": "required" }} autocomplete="off" />
+                                        <input class="form-control" type="file" name="rumah_sketsa" accept="image/x-png,image/gif,image/jpeg"  autocomplete="off" />
                                     </div>
                                     @if ($aksi == 'Edit')
                                     <a href="{{ $data->rumah_sketsa }}" target="_blank">Sketsa Lama</a>
@@ -105,7 +105,14 @@
                                             <div class="alert alert-success">
                                                 <h3>Fasilitas</h3>
                                                 <hr>
-                                                <div id="fasilitas"></div>
+                                                <div id="fasilitas">
+                                                    @foreach ($data->fasilitas as $i => $row)
+                                                    @include('backend.pages.rumah.fasilitas', [
+                                                        'id' => $i,
+                                                        'sumber' => 'edit'
+                                                    ])
+                                                    @endforeach
+                                                </div>
                                                 <button class="btn btn-outline-secondary btn-default" onclick="tambah_fasilitas()" type="button">Tambah</button>
                                             </div>
                                         </div>
@@ -113,7 +120,14 @@
                                             <div class="alert alert-danger">
                                                 <h3>Gambar</h3>
                                                 <hr>
-                                                <div id="gambar"></div>
+                                                <div id="gambar">
+                                                    @foreach ($data->gambar as $i => $row)
+                                                    @include('backend.pages.rumah.gambar', [
+                                                        'id' => $i,
+                                                        'sumber' => 'edit'
+                                                    ])
+                                                    @endforeach
+                                                </div>
                                                 <button class="btn btn-outline-secondary btn-default" onclick="tambah_gambar()" type="button">Tambah</button>
                                             </div>
                                         </div>
@@ -128,6 +142,7 @@
                         </div>
                     </div>
                 </form>
+                @include('backend.includes.component.error')
             </div>
         </div>
     </div>

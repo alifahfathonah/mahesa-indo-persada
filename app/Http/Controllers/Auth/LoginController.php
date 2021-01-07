@@ -57,7 +57,6 @@ class LoginController extends Controller
         ]);
 
         if ($validator->fails()) {
-            alert()->error('Login Gagal', implode('<br>', $validator->messages()->all()))->toHtml()->autoClose(5000);
             return redirect()->back()->withInput();
         }
 
@@ -65,7 +64,6 @@ class LoginController extends Controller
             return redirect('admin-area');
         }
 
-        alert()->error('Login Gagal','User ID atau Kata Sandi salah');
         return redirect()->back()->withInput();
     }
 

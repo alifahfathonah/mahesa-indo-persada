@@ -25,8 +25,8 @@
                         <div class="social-icons-header">
                             <div class="social-icons">
                                 <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-whatsapp text-white" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram text-white" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>

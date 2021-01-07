@@ -14,24 +14,36 @@ return [
     */
 
     'menu' => [[
-		'icon' => 'fas fa-circle',
+		'icon' => 'fa fa-circle',
 		'title' => 'Home',
 		'url' => '/admin-area/home'
 	],[
-		'icon' => 'fas fa-circle',
+		'icon' => 'fa fa-home',
 		'title' => 'Perumahan',
-		'url' => '/admin-area/perumahan'
+		'url' => 'javascript:;',
+		'caret' => true,
+		'sub_menu' => [[
+            'url' => '/admin-area/perumahan',
+			'title' => 'Data Perumahan'
+        ],[
+			'url' => '/admin-area/rumah',
+			'title' => 'Rumah'
+        ]]
 	],[
-		'icon' => 'fas fa-circle',
-		'title' => 'Rumah',
-		'url' => '/admin-area/rumah'
+		'icon' => 'fas fa-info',
+		'title' => 'Intro',
+		'url' => '/admin-area/moto'
 	],[
-		'icon' => 'fas fa-circle',
-		'title' => 'Slider',
-		'url' => '/admin-area/slider'
+		'icon' => 'fas fa-phone',
+		'title' => 'Kontak',
+		'url' => '/admin-area/kontak'
 	],[
 		'icon' => 'fas fa-circle',
 		'title' => 'Partner',
 		'url' => '/admin-area/partner'
+	],[
+		'icon' => 'fas fa-circle',
+		'title' => 'Slider',
+		'url' => '/admin-area/slider'
 	]]
 ];
