@@ -20,7 +20,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 @php
-                    $currentUrl = (Request::path() != '/') ? '/'. explode('/', Request::path())[0] : '/';
+				$currentUrl = '/'.Request::path();
 
                     function renderSubMenu($value, $currentUrl) {
                         $subMenu = '';
@@ -42,7 +42,7 @@
                                     $subSubMenu .= '</ul>';
                                 }
 
-                                $active = $currentUrl == $menu['url'] ? 'active' : '';
+                                $active = strpos($currentUrl, $menu['url']) === 0? 'active' : '';
 
                                 if ($active) {
                                     $GLOBALS['parent_active'] = true;
@@ -77,7 +77,7 @@
                                 $subMenu .= renderSubMenu($menu['sub_menu'], $currentUrl);
                                 $subMenu .= '</ul>';
                             }
-                            $active = $currentUrl == $menu['url']? 'menu-open' : '';
+                            $active = strpos($currentUrl, $menu['url']) === 0? 'menu-open' : '';
                             $active = empty($active) && !empty($GLOBALS['parent_active']) ? 'menu-open' : $active;
                             echo '
                                 <li class="nav-item '. $hasSub .' '. $active .'">
