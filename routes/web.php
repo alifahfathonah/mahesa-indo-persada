@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MotoController;
 use App\Http\Controllers\RumahController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PerumahanController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TentangkamiController;
 use App\Http\Controllers\BangunanlainController;
-use App\Http\Controllers\MotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,11 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/simpan', [BangunanlainController::class, 'simpan'])->name('lainnya.simpan');
             Route::delete('/hapus', [BangunanlainController::class, 'hapus']);
             Route::view('/gambar', 'backend.pages.lainnya.gambar', ['id' => date('Hisu'), 'sumber' => null]);
+        });
+
+        Route::prefix('password')->group(function () {
+            Route::get('/', [PenggunaController::class, 'backend'])->name('password');
+            Route::post('/simpan', [PenggunaController::class, 'simpan'])->name('password.simpan');
         });
 
         Route::prefix('moto')->group(function () {

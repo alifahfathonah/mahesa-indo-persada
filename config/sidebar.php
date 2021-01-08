@@ -54,5 +54,9 @@ return [
 		'icon' => 'fas fa-circle',
 		'title' => 'Slider',
 		'url' => '/admin-area/slider'
+	],[
+		'icon' => 'fas fa-key',
+		'title' => 'Ganti Password',
+		'url' => '/admin-area/password'
 	]]
 ];
