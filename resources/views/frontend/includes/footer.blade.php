@@ -1,4 +1,5 @@
 
+@inject('sosial_media', 'App\SosialMedia')
 @inject('kontak', 'App\Kontak')
 <!-- START FOOTER -->
 <footer class="first-footer ">
@@ -33,6 +34,10 @@
                                 </div>
                             </li>
                         </ul>
+                        <br>
+                        @foreach ($sosial_media->all() as $sm)
+                        <a href="{{ $sm->sosial_media_link }}" class="text-white" target="_blank"><i class="fa fa-lg fa-{{ $sm->sosial_media_nama }}" aria-hidden="true"></i></a> &nbsp;
+                        @endforeach
                     </div>
                 </div>
             </div>

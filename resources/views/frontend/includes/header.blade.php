@@ -1,6 +1,7 @@
 
 @inject('perumahan', 'App\Perumahan')
 @inject('bangunan_lain', 'App\BangunanLain')
+@inject('sosial_media', 'App\SosialMedia')
 
     <div id="wrapper">
         <!-- START SECTION HEADINGS -->
@@ -24,9 +25,9 @@
                     <div class="top-social hidden-sm-down">
                         <div class="social-icons-header">
                             <div class="social-icons">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-whatsapp text-white" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram text-white" aria-hidden="true"></i></a>
+                                @foreach ($sosial_media->all() as $sm)
+                                <a href="{{ $sm->sosial_media_link }}" class="text-white" target="_blank"><i class="fa fa-{{ $sm->sosial_media_nama }}" aria-hidden="true"></i></a>
+                                @endforeach
                             </div>
                         </div>
                     </div>

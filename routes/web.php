@@ -10,6 +10,7 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PerumahanController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\SosialmediaController;
 use App\Http\Controllers\TentangkamiController;
 use App\Http\Controllers\BangunanlainController;
 
@@ -41,6 +42,13 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/simpan', [PerumahanController::class, 'simpan'])->name('perumahan.simpan');
             Route::delete('/hapus', [PerumahanController::class, 'hapus']);
             Route::view('/gambar', 'backend.pages.perumahan.gambar', ['id' => date('Hisu'), 'sumber' => null]);
+        });
+
+        Route::prefix('sosialmedia')->group(function () {
+            Route::get('/', [SosialmediaController::class, 'backend'])->name('sosialmedia');
+            Route::get('/tambah', [SosialmediaController::class, 'tambah'])->name('sosialmedia.tambah');
+            Route::post('/simpan', [SosialmediaController::class, 'simpan'])->name('sosialmedia.simpan');
+            Route::delete('/hapus', [SosialmediaController::class, 'hapus']);
         });
 
         Route::prefix('slider')->group(function () {

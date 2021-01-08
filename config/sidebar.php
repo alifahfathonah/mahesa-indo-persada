@@ -60,10 +60,15 @@ return [
             'url' => '/admin-area/tentangkami'
         ]]
 	],[
-		'icon' => 'fas fa-circle',
+		'icon' => 'fas fa-images',
 		'title' => 'Slider',
         'id' => 'slider',
 		'url' => '/admin-area/slider'
+	],[
+		'icon' => 'fas fa-rss',
+		'title' => 'Sosial Media',
+        'id' => 'sosialmedia',
+		'url' => '/admin-area/sosialmedia'
 	],[
 		'icon' => 'fas fa-key',
         'id' => 'password',
