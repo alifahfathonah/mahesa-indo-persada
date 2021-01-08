@@ -40,11 +40,11 @@
                                         <textarea class="form-control" name="perumahan_deskripsi">{{ old('perumahan_deskripsi')? old('perumahan_deskripsi'): ($aksi == "Edit"? $data->perumahan_deskripsi: "") }}</textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label">Gambar Denah</label>
+                                        <label class="control-label">Gambar Masterplan</label>
                                         <input class="form-control" type="file" name="perumahan_denah" accept="image/*" {{ $aksi == "Edit"? "": "required" }} autocomplete="off" />
                                     </div>
                                     @if ($aksi == 'Edit')
-                                    <a href="{{ $data->perumahan_denah }}" target="_blank">Gambar Lama</a>
+                                    <a href="{{ $data->perumahan_denah }}" target="_blank">Masterplan Lama</a>
                                     @endif
                                     @include('backend.includes.component.error')
                                 </div>
