@@ -36,8 +36,8 @@ class MotoController extends Controller
 
                     $ext = $file->getClientOriginalExtension();
                     $nama_file = time().Str::random().".".$ext;
-                    $file->move(public_path('uploads/moto'), $nama_file);
-                    $data->kalimat_gambar = '/uploads/moto/'.$nama_file;
+                    $file->move(public_path('uploads/kalimat'), $nama_file);
+                    $data->kalimat_gambar = '/uploads/kalimat/'.$nama_file;
                 }
                 $data->save();
 
@@ -54,12 +54,12 @@ class MotoController extends Controller
                     foreach ($moto_gambar as $i => $gambar) {
                         $ext_gambar = $gambar->getClientOriginalExtension();
                         $nama_gambar = time().Str::random().".".$ext_gambar;
-                        $gambar->move(public_path('uploads/rumah'), $nama_gambar);
+                        $gambar->move(public_path('uploads/moto'), $nama_gambar);
 
                         $fas = new Moto();
                         $fas->moto_judul = $req->moto_judul[$i];
                         $fas->moto_deskripsi = $req->moto_deskripsi[$i];
-                        $fas->moto_gambar = '/uploads/rumah/'.$nama_gambar;
+                        $fas->moto_gambar = '/uploads/moto/'.$nama_gambar;
                         $fas->save();
                     }
                 }

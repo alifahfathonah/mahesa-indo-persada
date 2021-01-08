@@ -19,10 +19,13 @@ return [
 		'url' => '/admin-area/home'
 	],[
 		'icon' => 'fa fa-home',
-		'title' => 'Perumahan',
+		'title' => 'Proyek',
 		'url' => 'javascript:;',
 		'caret' => true,
 		'sub_menu' => [[
+			'url' => '/admin-area/lainnya',
+			'title' => 'Lainnya'
+        ],[
             'url' => '/admin-area/perumahan',
 			'title' => 'Data Perumahan'
         ],[
@@ -30,17 +33,23 @@ return [
 			'title' => 'Rumah'
         ]]
 	],[
-		'icon' => 'fas fa-info',
-		'title' => 'Intro',
-		'url' => '/admin-area/moto'
-	],[
-		'icon' => 'fas fa-phone',
-		'title' => 'Kontak',
-		'url' => '/admin-area/kontak'
-	],[
-		'icon' => 'fas fa-circle',
-		'title' => 'Partner',
-		'url' => '/admin-area/partner'
+		'icon' => 'fa fa-id-card',
+		'title' => 'Profil Perusahaan',
+		'url' => 'javascript:;',
+		'caret' => true,
+		'sub_menu' => [[
+            'title' => 'Intro',
+            'url' => '/admin-area/moto'
+        ],[
+            'title' => 'Kontak',
+            'url' => '/admin-area/kontak'
+        ],[
+            'title' => 'Partner',
+            'url' => '/admin-area/partner'
+        ],[
+            'title' => 'Tentang Perusahaan',
+            'url' => '/admin-area/tentangkami'
+        ]]
 	],[
 		'icon' => 'fas fa-circle',
 		'title' => 'Slider',

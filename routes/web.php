@@ -66,10 +66,25 @@ Route::group(['middleware' => ['auth']], function () {
             Route::view('/fasilitas', 'backend.pages.rumah.fasilitas', ['id' => date('Hisu'), 'sumber' => null]);
         });
 
+        Route::prefix('lainnya')->group(function () {
+            Route::get('/', [BangunanlainController::class, 'backend'])->name('lainnya');
+            Route::get('/tambah', [BangunanlainController::class, 'tambah'])->name('lainnya.tambah');
+            Route::get('/edit', [BangunanlainController::class, 'edit'])->name('lainnya.edit');
+            Route::post('/simpan', [BangunanlainController::class, 'simpan'])->name('lainnya.simpan');
+            Route::delete('/hapus', [BangunanlainController::class, 'hapus']);
+            Route::view('/gambar', 'backend.pages.lainnya.gambar', ['id' => date('Hisu'), 'sumber' => null]);
+        });
+
         Route::prefix('moto')->group(function () {
             Route::get('/', [MotoController::class, 'backend'])->name('moto');
             Route::post('/simpan', [MotoController::class, 'simpan'])->name('moto.simpan');
             Route::view('/point', 'backend.pages.moto.point', ['id' => date('Hisu'), 'sumber' => null]);
+        });
+
+        Route::prefix('tentangkami')->group(function () {
+            Route::get('/', [TentangkamiController::class, 'backend'])->name('tentangkami');
+            Route::post('/simpan', [TentangkamiController::class, 'simpan'])->name('tentangkami.simpan');
+            Route::view('/point', 'backend.pages.tentangkami.point', ['id' => date('Hisu'), 'sumber' => null]);
         });
 
         Route::prefix('kontak')->group(function () {

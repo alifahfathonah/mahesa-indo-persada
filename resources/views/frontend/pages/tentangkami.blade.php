@@ -3,8 +3,7 @@
 @section('title', ' | Tentang Kami')
 
 @section('content')
-
-<section class="headings">
+<section class="headings" style="background: linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url({{ $data->kalimat_gambar }}) no-repeat center center !important;">
     <div class="text-heading text-center">
         <div class="container">
             <h1>Tentang Kami</h1>
@@ -18,10 +17,10 @@
 <section class="about-us">
     <div class="container">
         <div>
-            <h2 class="text-left mb-4">Tentang <span>PT Mahesa Indo Persada</span></h2>
+            <h2 class="text-left mb-4">Tentang <span>Kami</span></h2>
         </div>
         <div class="pftext">
-            {!! $data->tentang_kami_text !!}
+            {!! $data->kalimat_text !!}
         </div>
     </div>
 </section>
@@ -40,7 +39,7 @@
                 <div class="art-1 img-1">
                     <img src="{{ $service->service_gambar }}" width="52" alt="">
                     <h3>{{ $service->service_judul }}</h3>
-                    <p>{{ $service->service_text }}</p>
+                    <p>{{ $service->service_deskripsi }}</p>
                 </div>
             </article>
             @endforeach

@@ -16,7 +16,7 @@ class HomeController extends Controller
         $slider = Slider::take(5)->get();
         $rumah = Rumah::with('gambar')->take(15)->orderBy('created_at', 'desc')->get();
         $partner = Partner::all();
-        $moto = Moto::all();
+        $moto = Moto::take(4)->get();
         $intro = Kalimat::where('kalimat_jenis', 'Intro')->first();
         return view('frontend.pages.beranda', [
             'slider' => $slider,

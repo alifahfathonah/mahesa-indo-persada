@@ -15,7 +15,7 @@
     </td>
     <td class="align-middle">
         @if ($sumber == 'edit')
-        <img src="{{ $row->moto_gambar }}" class="h-50" alt="">
+        <img src="{{ $row->moto_gambar }}" style="height: 50px" alt="">
         <input type="hidden" name="moto_gambar_old[]" value="{{ $row->moto_gambar }}">
         @else
         <input type="file" class="form-control" name="moto_gambar[]">
