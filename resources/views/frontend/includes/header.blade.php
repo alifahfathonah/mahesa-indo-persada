@@ -2,6 +2,7 @@
 @inject('perumahan', 'App\Perumahan')
 @inject('bangunan_lain', 'App\BangunanLain')
 @inject('sosial_media', 'App\SosialMedia')
+@inject('kontak', 'App\Kontak')
 
     <div id="wrapper">
         <!-- START SECTION HEADINGS -->
@@ -13,13 +14,13 @@
                 <div class="container">
                     <div class="top-info hidden-sm-down">
                         <div class="call-header">
-                            <p><i class="fa fa-phone" aria-hidden="true"></i> {{ config('constants.telpon') }}</p>
+                            <p><i class="fa fa-phone" aria-hidden="true"></i> {{ $kontak->first()->kontak_telpon }}</p>
                         </div>
                         <div class="address-header">
-                            <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ config('constants.alamat') }}</p>
+                            <p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $kontak->first()->kontak_alamat }}</p>
                         </div>
                         <div class="mail-header">
-                            <p><i class="fa fa-envelope" aria-hidden="true"></i> {{ config('constants.mail') }}</p>
+                            <p><i class="fa fa-envelope" aria-hidden="true"></i> <a class="text-white" href="mailto:{{ $kontak->first()->kontak_email }}">{{ $kontak->first()->kontak_email }}</a></p>
                         </div>
                     </div>
                     <div class="top-social hidden-sm-down">

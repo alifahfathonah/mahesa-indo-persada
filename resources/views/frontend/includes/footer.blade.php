@@ -30,7 +30,7 @@
                             <li>
                                 <div class="info">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <p class="in-p">{{ $kontak->first()->kontak_email }}</p>
+                                    <p class="in-p"><a class="text-white" href="mailto:{{ $kontak->first()->kontak_email }}">{{ $kontak->first()->kontak_email }}</a></p>
                                 </div>
                             </li>
                         </ul>

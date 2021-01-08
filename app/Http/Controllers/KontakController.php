@@ -15,14 +15,14 @@ class KontakController extends Controller
     public function frontend(Request $req)
     {
         return view('frontend.pages.kontak', [
-            'data' => Kontak::get()->first()
+            'data' => Kontak::first()
         ]);
     }
 
 	public function backend(Request $req)
 	{
         return view('backend.pages.kontak.form', [
-            'data' => Kontak::all()->first()
+            'data' => Kontak::first()
         ]);
     }
 
