@@ -30,13 +30,13 @@
                             <li>
                                 <div class="info">
                                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                                    <p class="in-p"><a class="text-white" href="mailto:{{ $kontak->first()->kontak_email }}">{{ $kontak->first()->kontak_email }}</a></p>
+                                    <p class="in-p"><a href="mailto:{{ $kontak->first()->kontak_email }}">{{ $kontak->first()->kontak_email }}</a></p>
                                 </div>
                             </li>
                         </ul>
                         <br>
                         @foreach ($sosial_media->all() as $sm)
-                        <a href="{{ $sm->sosial_media_link }}" class="text-white" target="_blank"><i class="fa fa-lg fa-{{ $sm->sosial_media_nama }}" aria-hidden="true"></i></a> &nbsp;
+                        <a href="{{ $sm->sosial_media_link }}" target="_blank"><i class="fa fa-lg fa-{{ $sm->sosial_media_nama }}" aria-hidden="true"></i></a> &nbsp;
                         @endforeach
                     </div>
                 </div>
