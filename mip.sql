@@ -11,7 +11,7 @@
  Target Server Version : 80022
  File Encoding         : 65001
 
- Date: 07/01/2021 21:45:27
+ Date: 08/01/2021 14:56:15
 */
 
 SET NAMES utf8mb4;
@@ -30,15 +30,16 @@ CREATE TABLE `bangunan_lain` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`bangunan_lain_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of bangunan_lain
 -- ----------------------------
 BEGIN;
-INSERT INTO `bangunan_lain` VALUES (1, 'Origin Hotel Kuta Lombok', 'Origin Hotel Kuta Lombok', 'Kuta Lombok', NULL, NULL, NULL);
+INSERT INTO `bangunan_lain` VALUES (1, 'Origin Hotel Kuta Lombok', 'Origin Hotel Kuta Lombok', NULL, NULL, NULL, '2021-01-08 06:33:39');
 INSERT INTO `bangunan_lain` VALUES (2, 'Ananda Villa Kuta lombok / Bliz Villa', 'Ananda Villa Kuta lombok / Bliz Villa', 'Kuta Lombok', NULL, NULL, NULL);
 INSERT INTO `bangunan_lain` VALUES (3, 'Selong180 jabon selong belanak', 'Selong180 jabon selong belanak', 'Selong Belanak', NULL, NULL, NULL);
+INSERT INTO `bangunan_lain` VALUES (4, 'asdf', 'asdf', NULL, '/uploads/bangunanlain/16100878708We21q1HDCdumaVU.jpeg', '2021-01-08 06:36:06', '2021-01-08 06:37:50');
 COMMIT;
 
 -- ----------------------------
@@ -48,7 +49,7 @@ DROP TABLE IF EXISTS `bangunan_lain_gambar`;
 CREATE TABLE `bangunan_lain_gambar` (
   `bangunan_lain_id` bigint NOT NULL,
   `bangunan_lain_gambar` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
-  PRIMARY KEY (`bangunan_lain_id`) USING BTREE,
+  KEY `bangunan_lain_gambar_ibfk_1` (`bangunan_lain_id`),
   CONSTRAINT `bangunan_lain_gambar_ibfk_1` FOREIGN KEY (`bangunan_lain_id`) REFERENCES `bangunan_lain` (`bangunan_lain_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
@@ -59,6 +60,7 @@ BEGIN;
 INSERT INTO `bangunan_lain_gambar` VALUES (1, '/uploads/slider/p2.jpg');
 INSERT INTO `bangunan_lain_gambar` VALUES (2, '/uploads/slider/p3.jpg');
 INSERT INTO `bangunan_lain_gambar` VALUES (3, '/uploads/slider/p1.jpg');
+INSERT INTO `bangunan_lain_gambar` VALUES (4, '/uploads/bangunanlain/1610087766xGT3SO4o30P14Js4.jpeg');
 COMMIT;
 
 -- ----------------------------
@@ -93,8 +95,8 @@ CREATE TABLE `kalimat` (
 -- Records of kalimat
 -- ----------------------------
 BEGIN;
-INSERT INTO `kalimat` VALUES (2, 'Intro', 'Kebijakan Mutu', 'Bertekad untuk bekerja tepat waktu dengan mutu yang baik untu mencapai kepuasan pelanggan dan berusaha untuk meningkatkan inovasi produk serta sumber daya manusia secara maksimal', '/uploads/moto/1610025047IZ0wIurWQx1uLxVy.jpeg', NULL, '2021-01-07 05:10:47');
-INSERT INTO `kalimat` VALUES (3, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `kalimat` VALUES (2, 'Intro', 'Kebijakan Mutu', 'Bertekad untuk bekerja tepat waktu dengan mutu yang baik untu mencapai kepuasan pelanggan dan berusaha untuk meningkatkan inovasi produk serta sumber daya manusia secara maksimal', '/uploads/moto/1610025047IZ0wIurWQx1uLxVy.jpeg', '2021-01-07 00:00:00', '2021-01-07 13:10:47');
+INSERT INTO `kalimat` VALUES (3, 'Tentang Kami', NULL, '<p>PT. Mahesa Indo Persada didirikan di Mataram pada Notaris Ahsan Ramali, SH dengan akta notaris No. 26 pada tanggal 17 Juni 2015 dengan pengesahan Menteri Hukum dan HAM nomor : AHU-2445153_AH_01_01_TAHUN_2015. Dan akta perubahan terakhir di Praya pada notaris Zainul Islam, SH dengan nomor 13 Tanggal 30 Juni 2018 dengan pengesahan Menteri Hukum dan HAM nomor : AHU-AH.01.03-0249833.</p><p><br></p><p><span style=\"font-weight: bolder;\">VISI</span></p><p>Menjadikan perusahaan yang mengutamakan kepuasan pelanggan melalui produk yang bermutu, tepat waktu dengan harga yang bersaing</p><p>Menjadikan perusahaan di bidang jasa konstruksi yang dikelola secara profesional dan mampu berkompetisi</p><p>Memberikan nilai tambah bagi pelanggan, mitra, karyawan serta masyarakat dalam meraih kesuksesan bersama</p><p><br></p><p><b>KEBIJAKAN MUTU</b></p><p>Manajemen bertekad untuk bekerja tepat waktu dengan mutu yang baik untuk mencapai kepuasan pelanggan dan berusaha untuk meningkatkan inovasi produk serta sumber daya manusia secara maksimal.</p><p><br></p>', '/uploads/moto/1610025047IZ0wIurWQx1uLxVy.jpeg', '2021-01-07 00:00:00', '2021-01-08 06:51:45');
 COMMIT;
 
 -- ----------------------------
@@ -145,7 +147,7 @@ CREATE TABLE `kontak` (
 -- Records of kontak
 -- ----------------------------
 BEGIN;
-INSERT INTO `kontak` VALUES (1, 'Jalan Bypass Lombok International Airport KM 9', '(0370) 6503612', 'admin@miproperti.com', '8:00 a.m - 9:00 p.m', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7887.1363704263!2d116.23442599999998!3d-8.732488000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4700eb9e4cfb3a73!2sPerumahan%20Bypass%20Regency!5e0!3m2!1sen!2sid!4v1610026387930!5m2!1sen!2sid\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>', 'Pelayanan jasa konstruksi terbaik hanya dapat dicapai melalui komitmen PT. Mahese Indo Persada, Dukungan dengan seluruh mitra perusahaan, dan penerapan manajemen teknologi efektif-efisien.', '/uploads/kontak/16100262804fd3YyT5PuPXTaj2.jpeg', NULL, '2021-01-07 05:33:20');
+INSERT INTO `kontak` VALUES (1, 'Jalan Bypass Lombok International Airport KM 9', '(0370) 6503612', 'admin@miproperti.com', '8:00 a.m - 9:00 p.m', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7887.1363704263!2d116.23442599999998!3d-8.732488000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4700eb9e4cfb3a73!2sPerumahan%20Bypass%20Regency!5e0!3m2!1sen!2sid!4v1610026387930!5m2!1sen!2sid\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>', 'Pelayanan jasa konstruksi terbaik hanya dapat dicapai melalui komitmen PT. Mahese Indo Persada, Dukungan dengan seluruh mitra perusahaan, dan penerapan manajemen teknologi efektif-efisien.', '/uploads/kontak/16100262804fd3YyT5PuPXTaj2.jpeg', NULL, '2021-01-07 13:33:20');
 COMMIT;
 
 -- ----------------------------
@@ -166,10 +168,10 @@ CREATE TABLE `moto` (
 -- Records of moto
 -- ----------------------------
 BEGIN;
-INSERT INTO `moto` VALUES (11, 'Kepuasan Pelanggan', 'Melalui produk yang bermutu, tepat waktu', '/uploads/rumah/1610024727HiGJ0yiV2mU5gRE5.svg', '2021-01-07 05:05:27', '2021-01-07 05:05:27');
-INSERT INTO `moto` VALUES (12, 'Profesional', 'Bekerja secara profesional dan mampu berkompetisi', '/uploads/rumah/1610024727YDxKH5lursU7kljO.svg', '2021-01-07 05:05:27', '2021-01-07 05:05:27');
-INSERT INTO `moto` VALUES (13, 'Harga Bersaing', 'Harga produk yang mampu bersaing', '/uploads/rumah/1610024884aUyGi6LQ8uZTd63e.svg', '2021-01-07 05:08:04', '2021-01-07 05:08:04');
-INSERT INTO `moto` VALUES (14, 'Kesuksesan Bersama', 'Memberikan nilai tambah bagi pelanggan, mitra, karyawan, serta masyarakat demi kesuksesan bersama', '/uploads/rumah/16100248841Do7BbUjNyktMolc.svg', '2021-01-07 05:08:04', '2021-01-07 05:08:04');
+INSERT INTO `moto` VALUES (11, 'Kepuasan Pelanggan', 'Melalui produk yang bermutu, tepat waktu', '/uploads/rumah/1610024727HiGJ0yiV2mU5gRE5.svg', '2021-01-07 13:05:27', '2021-01-07 13:05:27');
+INSERT INTO `moto` VALUES (12, 'Profesional', 'Bekerja secara profesional dan mampu berkompetisi', '/uploads/rumah/1610024727YDxKH5lursU7kljO.svg', '2021-01-07 13:05:27', '2021-01-07 13:05:27');
+INSERT INTO `moto` VALUES (13, 'Harga Bersaing', 'Harga produk yang mampu bersaing', '/uploads/rumah/1610024884aUyGi6LQ8uZTd63e.svg', '2021-01-07 13:08:04', '2021-01-07 13:08:04');
+INSERT INTO `moto` VALUES (14, 'Kesuksesan Bersama', 'Memberikan nilai tambah bagi pelanggan, mitra, karyawan, serta masyarakat demi kesuksesan bersama', '/uploads/rumah/16100248841Do7BbUjNyktMolc.svg', '2021-01-07 13:08:04', '2021-01-07 13:08:04');
 COMMIT;
 
 -- ----------------------------
@@ -193,7 +195,7 @@ BEGIN;
 INSERT INTO `partner` VALUES (1, '/uploads/partner/mandiri.svg', 'Bank Mandiri', 'https://bankmandiri.co.id/', NULL, NULL);
 INSERT INTO `partner` VALUES (2, '/uploads/partner/pdam.png', 'PT Air Minum Giri Menang', 'https://ptamgirimenang.com/', NULL, NULL);
 INSERT INTO `partner` VALUES (3, '/uploads/partner/pln.png', 'PLN', 'https://portal.pln.co.id/', NULL, NULL);
-INSERT INTO `partner` VALUES (5, '/uploads/partner/1610025242JWA1o8zj1JBGPzeR.png', 'BNI Syariah', 'http://www.bnisyariah.co.id/', '2021-01-07 05:14:02', '2021-01-07 05:14:02');
+INSERT INTO `partner` VALUES (5, '/uploads/partner/1610025242JWA1o8zj1JBGPzeR.png', 'BNI Syariah', 'http://www.bnisyariah.co.id/', '2021-01-07 13:14:02', '2021-01-07 13:14:02');
 COMMIT;
 
 -- ----------------------------
@@ -214,7 +216,7 @@ CREATE TABLE `pengguna` (
 -- Records of pengguna
 -- ----------------------------
 BEGIN;
-INSERT INTO `pengguna` VALUES ('administrator', '$2y$10$hk/ipT8k1UslIb5Gii9j7.bjqFUIIw1YygHU.3ACc528mFmRHkfLa', 'Administrator', NULL, NULL, '2020-11-04 11:39:23');
+INSERT INTO `pengguna` VALUES ('administrator', '$2y$10$hk/ipT8k1UslIb5Gii9j7.bjqFUIIw1YygHU.3ACc528mFmRHkfLa', 'Administrator', NULL, NULL, '2020-11-04 19:39:23');
 COMMIT;
 
 -- ----------------------------
@@ -293,7 +295,7 @@ CREATE TABLE `rumah` (
   PRIMARY KEY (`rumah_id`) USING BTREE,
   KEY `perumahan_id` (`perumahan_id`) USING BTREE,
   CONSTRAINT `rumah_ibfk_1` FOREIGN KEY (`perumahan_id`) REFERENCES `perumahan` (`perumahan_id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of rumah
@@ -303,7 +305,7 @@ INSERT INTO `rumah` VALUES (1, 1, 'Tipe 63/117', 500000000.00, 'Rumah tipe 63/11
 INSERT INTO `rumah` VALUES (2, 1, 'Tipe 136/100', 500000000.00, 'Rumah tipe 136/100 siap huni', '/uploads/rumah/136sket.jpeg', 2, 1, 1, 1, 1, NULL, NULL);
 INSERT INTO `rumah` VALUES (3, 1, 'Tipe 45/110', 500000000.00, 'Rumah tipe 45/110 siap huni', '/uploads/rumah/45sket.jpeg', 2, 1, 1, 1, 1, NULL, NULL);
 INSERT INTO `rumah` VALUES (4, 1, 'Tipe 30/100', 500000000.00, 'Rumah tipe 30/100 siap huni', '/uploads/rumah/30sket.jpeg', 2, 1, 1, 1, 1, NULL, NULL);
-INSERT INTO `rumah` VALUES (9, 1, 'Ruko adfasdf', 992000000.00, NULL, '/uploads/rumah/1610002608YFLV6YTJo8zEGbwm.jpeg', 0, 0, 0, 0, 0, NULL, '2021-01-06 22:56:48');
+INSERT INTO `rumah` VALUES (15, 1, 'Ruko', 992000000.00, NULL, '/uploads/rumah/1610054564KmpIV0CxHPDMuKJ0.jpeg', 0, 0, 0, 0, 0, '2021-01-07 21:22:44', '2021-01-07 21:22:44');
 COMMIT;
 
 -- ----------------------------
@@ -361,6 +363,7 @@ INSERT INTO `rumah_gambar` VALUES (7, '/uploads/rumah/1609812755Ffk9NOAs0syNyiLD
 INSERT INTO `rumah_gambar` VALUES (8, '/uploads/rumah/1609812774P4dCHs6HJmcpJhNw.png');
 INSERT INTO `rumah_gambar` VALUES (8, '/uploads/rumah/1609812774OKewvtDiH61CZeO0.jpg');
 INSERT INTO `rumah_gambar` VALUES (9, '/uploads/rumah/1610002419xLym7TV6ZRrdgG95.jpeg');
+INSERT INTO `rumah_gambar` VALUES (15, '/uploads/rumah/1610054564296gFuumFa7k3iCr.jpeg');
 COMMIT;
 
 -- ----------------------------
@@ -370,7 +373,7 @@ DROP TABLE IF EXISTS `service`;
 CREATE TABLE `service` (
   `service_id` bigint NOT NULL AUTO_INCREMENT,
   `service_judul` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
-  `service_text` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  `service_deskripsi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `service_gambar` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
