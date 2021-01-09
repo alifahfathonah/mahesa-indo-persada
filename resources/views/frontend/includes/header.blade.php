@@ -74,7 +74,7 @@
                                 <li><a href="#">Masterplan</a>
                                     <ul>
                                         @foreach ($perumahan->all() as $index => $perumahan)
-                                        <li><a href="/masterplan/{{ $perumahan->getKey() }}">{{ $perumahan->perumahan_nama }}</a></li>
+                                        <li><a href="/masterplan/{{ $perumahan->getKey() }}" target="_blank">{{ $perumahan->perumahan_nama }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
