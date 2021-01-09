@@ -2,6 +2,9 @@
 
 @section('title', ' | '.$aksi.' Perumahan')
 
+@push('css')
+<link rel="stylesheet" href="/assets/admin-lte/plugins/summernote/summernote-bs4.css">
+@endpush
 
 @section('page')
 <li class="breadcrumb-item">Perumahan</li>
@@ -37,7 +40,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Deskripsi</label>
-                                        <textarea class="form-control" name="perumahan_deskripsi">{{ old('perumahan_deskripsi')? old('perumahan_deskripsi'): ($aksi == "Edit"? $data->perumahan_deskripsi: "") }}</textarea>
+                                        <textarea class="form-control textarea" name="perumahan_deskripsi">{{ old('perumahan_deskripsi')? old('perumahan_deskripsi'): ($aksi == "Edit"? $data->perumahan_deskripsi: "") }}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Gambar Masterplan</label>
@@ -92,5 +95,26 @@
     function hapus(id) {
         $("#" + id).remove();
     }
+</script>
+@endpush
+
+@push('scripts')
+<script src="/assets/admin-lte/plugins/summernote/summernote-bs4.min.js"></script>
+<script>
+    $(function () {
+        $('.textarea').summernote({
+            height: 400,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+            ]
+        })
+    })
 </script>
 @endpush

@@ -19,6 +19,11 @@ return [
         'id' => 'home',
 		'url' => '/admin-area/home'
 	],[
+		'icon' => 'fas fa-address-book',
+		'title' => 'Data Booking',
+        'id' => 'booking',
+		'url' => '/admin-area/booking'
+	],[
 		'icon' => 'fa fa-home',
 		'title' => 'Proyek',
 		'url' => 'javascript:;',

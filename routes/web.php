@@ -6,6 +6,7 @@ use App\Http\Controllers\MotoController;
 use App\Http\Controllers\RumahController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\PerumahanController;
@@ -49,6 +50,13 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/tambah', [SosialmediaController::class, 'tambah'])->name('sosialmedia.tambah');
             Route::post('/simpan', [SosialmediaController::class, 'simpan'])->name('sosialmedia.simpan');
             Route::delete('/hapus', [SosialmediaController::class, 'hapus']);
+        });
+
+        Route::prefix('booking')->group(function () {
+            Route::get('/', [BookingController::class, 'backend'])->name('booking');
+            Route::get('/tambah/{id}', [BookingController::class, 'tambah'])->name('booking.tambah');
+            Route::post('/simpan', [BookingController::class, 'simpan'])->name('booking.simpan');
+            Route::delete('/hapus', [BookingController::class, 'hapus']);
         });
 
         Route::prefix('slider')->group(function () {
@@ -113,5 +121,6 @@ Route::get('/tentangkami', [TentangkamiController::class, 'frontend']);
 Route::get('/kontak', [KontakController::class, 'frontend']);
 Route::get('/home', [HomeController::class, 'frontend'])->name('home');
 Route::get('/perumahan/{id}', [PerumahanController::class, 'frontend'])->name('home');
+Route::get('/masterplan/{id}', [BookingController::class, 'frontend'])->name('home');
 Route::get('/rumah/{id}', [RumahController::class, 'frontend'])->name('home');
 Route::get('/lainnya/{id}', [BangunanlainController::class, 'frontend'])->name('home');
