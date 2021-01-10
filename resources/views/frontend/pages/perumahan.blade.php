@@ -76,7 +76,14 @@
             {{ $data->links() }}
         </nav>
         <div class="floor-plan property wprt-image-video w50 pro">
+            <h5>Deskripsi</h5>
             {!! $data->first()->perumahan->perumahan_deskripsi !!}
+        </div>
+        <div class="floor-plan property wprt-image-video w50 pro">
+            <h5>Masterplan</h5>
+            <a href="/masterplan/{{ $data->first()->perumahan->perumahan_id }}" target="_blank">
+                <img src="{{ $data->first()->perumahan->perumahan_denah }}" alt="">
+            </a>
         </div>
     </div>
 
