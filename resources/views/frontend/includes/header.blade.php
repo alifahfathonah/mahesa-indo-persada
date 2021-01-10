@@ -71,13 +71,13 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="#">Masterplan</a>
+                                {{-- <li><a href="#">Masterplan</a>
                                     <ul>
                                         @foreach ($perumahan->all() as $index => $perumahan)
                                         <li><a href="/masterplan/{{ $perumahan->getKey() }}" target="_blank">{{ $perumahan->perumahan_nama }}</a></li>
                                         @endforeach
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li><a href="/tentangkami">Tentang Kami</a></li>
                                 <li><a href="/kontak">Kontak Kami</a></li>
                             </ul>
