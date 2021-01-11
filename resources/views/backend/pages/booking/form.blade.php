@@ -1,61 +1,51 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-	@include('backend.includes.head')
-</head>
-<body>
-    <a href="/admin-area/booking" class="btn btn-primary text-center" style="margin-left: 20px; margin-top: 20px">Kembali</a>
-    <div src="{{ $perumahan->perumahan_denah }}" alt="" id="peta" style="position: relative;">
-        <img src="{{ $perumahan->perumahan_denah }}" alt="">
-        @foreach ($data as $row)
-            <img src="/assets/images/home.png" style="width: 50px; position: absolute; top: {{ $row->booking_y }}px; left: {{ $row->booking_x }}px" alt="" title="{{ $row->booking_blok }} - {{ $row->booking_pelanggan }}">
-        @endforeach
-    </div>
-    <div class="modal" tabindex="-1" id="myModal" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form action="{{ route('booking.simpan') }}" method="POST">
-                    @csrf
-                    <div class="modal-header">
-                        <h5 class="modal-title">Input Data Booking</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="hidden" name="booking_x" id="blok_x">
-                        <input type="hidden" name="booking_y" id="blok_y">
-                        <input type="hidden" name="perumahan_id" value="{{ $perumahan->perumahan_id }}">
-                        <div class="form-group">
-                            <label class="control-label">Blok</label>
-                            <input class="form-control" type="text" name="booking_blok" autocomplete="off" id="booking_blok" required />
+@extends('backend.pages.main')
+
+@section('title', ' | Data Booking')
+
+@section('page')
+<li class="breadcrumb-item">Data Booking</li>
+<li class="breadcrumb-item active">Edit Data Booking</li>
+@endsection
+
+@section('header')
+<h1 class="m-0 text-dark">Edit Data Booking</h1>
+@endsection
+
+@section('subcontent')
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form action="{{ route('booking.simpan') }}" method="post" enctype="multipart/form-data">
+                    <div class="card">
+                        <div class="card-body">
+                            @csrf
+                            <div class="row">
+                                <input type="hidden" name="ID" value="{{ $data->booking_id }}">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Perumahan dan Blok</label>
+                                        <input class="form-control" type="text" name="booking_pelanggan" value="{{ $data->perumahan->perumahan_nama." - ".$data->booking_blok }}" autocomplete="off" readonly/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Pelanggan</label>
+                                        <input class="form-control" type="text" name="booking_pelanggan" value="{{ old('booking_pelanggan')? old('booking_pelanggan'): ($data ? $data->booking_pelanggan: "") }}" autocomplete="off" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Keterangan</label>
+                                        <textarea class="form-control" name="booking_keterangan">{{ old('booking_keterangan')? old('booking_keterangan'): ($data ? $data->booking_keterangan: "") }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Nama Pelanggan</label>
-                            <input class="form-control" type="text" name="booking_pelanggan" autocomplete="off" id="booking_pelanggan" required />
+                        <div class="card-footer form-inline">
+                            <input type="submit" value="Simpan" class="btn btn-sm btn-success"/>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Keterangan</label>
-                            <textarea class="form-control" name="booking_keterangan">{{ old('booking_keterangan')? old('booking_keterangan'): ($aksi == "Edit"? $data->booking_keterangan: "") }}</textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="submit" class="btn btn-primary" value="Simpan">
                     </div>
                 </form>
+                @include('backend.includes.component.error')
             </div>
         </div>
     </div>
-    @include('backend.includes.page-js')
-    <script>
-        $('#peta').on('click', function (e) {
-            var posX = $(this).offset().left,
-            posY = $(this).offset().top;
-
-            $('#blok_x').val(e.pageX - posX - 25);
-            $('#blok_y').val(e.pageY - posY - 25);
-            $('#myModal').modal('show');
-        })
-    </script>
-</body>
-</html>
+</section>
+@endsection

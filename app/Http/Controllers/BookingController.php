@@ -35,7 +35,7 @@ class BookingController extends Controller
 
 	public function tambah($id, Request $req)
 	{
-        return view('backend.pages.booking.form', [
+        return view('backend.pages.booking.map', [
             'back' => Str::contains(url()->previous(), ['admin-area/booking/tambah', 'admin-area/booking/edit'])? '/admin-area/booking': url()->previous(),
             'perumahan' => Perumahan::findOrFail($id),
             'data' => Booking::where('perumahan_id', $id)->get(),
@@ -43,17 +43,33 @@ class BookingController extends Controller
         ]);
     }
 
+	public function edit($id, Request $req)
+	{
+        return view('backend.pages.booking.form', [
+            'back' => Str::contains(url()->previous(), ['admin-area/booking/tambah', 'admin-area/booking/edit'])? '/admin-area/booking': url()->previous(),
+            'data' => Booking::findOrFail($id)
+        ]);
+    }
+
 	public function simpan(Request $req)
 	{
         try
         {
+            if ($req->ID) {
+                $data = Booking::findOrFail($req->ID);
+                $data->booking_pelanggan = $req->get('booking_pelanggan');
+                $data->booking_keterangan = $req->get('booking_keterangan');
+                $data->save();
+            }else{
                 $data = new Booking();
                 $data->perumahan_id = $req->get('perumahan_id');
                 $data->booking_x = $req->get('booking_x');
                 $data->booking_y = $req->get('booking_y');
                 $data->booking_pelanggan = $req->get('booking_pelanggan');
                 $data->booking_blok = $req->get('booking_blok');
+                $data->booking_keterangan = $req->get('booking_keterangan');
                 $data->save();
+            }
             return redirect($req->get('redirect')? $req->get('redirect'): 'admin-area/booking');
 		}catch(\Exception $e){
             return redirect()->back()->withInput()->withErrors('Gagal Menyimpan Data. '.$e->getMessage());

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Rumah;
+use App\Booking;
 use App\Perumahan;
 use App\PerumahanGambar;
 use Illuminate\Support\Str;
@@ -16,7 +17,8 @@ class PerumahanController extends Controller
     public function frontend($id = null)
     {
         return view('frontend.pages.perumahan', [
-            'data' => Rumah::with('perumahan')->where('perumahan_id', $id)->paginate(6)
+            'data' => Rumah::with('perumahan')->where('perumahan_id', $id)->paginate(6),
+            'booking' => Booking::where('perumahan_id', $id)->get()
         ]);
     }
 

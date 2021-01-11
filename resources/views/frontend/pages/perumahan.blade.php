@@ -42,14 +42,14 @@
             </section>
             <div class="row">
                 @foreach ($data as $rumah)
-                <div class="item col-lg-4 col-md-4 col-xs-12 landscapes sale">
+                <div class="item col-lg-4 col-md-6 col-xs-12 landscapes sale">
                     <div class="project-single">
                         <div class="project-inner project-head">
                             <div class="homes">
                                 <!-- homes img -->
                                 <a href="/rumah/{{ $rumah->rumah_id }}" class="homes-img">
                                     <div class="homes-price">Rp. {{ number_format($rumah->rumah_harga) }}</div>
-                                    <img src="{{ ($rumah->gambar->first()->rumah_gambar) }}" alt="home-1" class="img-responsive">
+                                    <img src="{{ ($rumah->gambar->first()->rumah_gambar) }}" alt="home-1" class="img-responsive" style="height: 250px">
                                 </a>
                             </div>
                         </div>
@@ -81,9 +81,12 @@
         </div>
         <div class="floor-plan property wprt-image-video w50 pro">
             <h5>Masterplan</h5>
-            <a href="/masterplan/{{ $data->first()->perumahan->perumahan_id }}" target="_blank">
-                <img src="{{ $data->first()->perumahan->perumahan_denah }}" alt="">
-            </a>
+                <div alt="" id="peta" style="position: relative; overflow:auto">
+                    <img src="{{ $data->first()->perumahan->perumahan_denah }}" alt="" style="width: 1300px; max-width: 1300px">
+                    @foreach ($booking as $row)
+                        <img src="/assets/images/{{ $row->booking_pelanggan? 'home.png': 'home_green.png' }}" style="width: 30px; position: absolute; top: {{ $row->booking_y+10 }}px; left: {{ $row->booking_x+10 }}px" alt="" title="{{ $row->booking_blok.($row->booking_pelanggan?:"") }}">
+                    @endforeach
+                </div>
         </div>
     </div>
 

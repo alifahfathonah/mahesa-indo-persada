@@ -45,13 +45,6 @@
                                 @endforeach
                             </ul>
                         </li>
-                        {{-- <li><a href="#">Masterplan</a>
-                            <ul>
-                                @foreach ($perumahan->all() as $index => $perumahan)
-                                <li><a href="/masterplan/{{ $perumahan->getKey() }}">{{ $perumahan->perumahan_nama }}</a></li>
-                                @endforeach
-                            </ul>
-                        </li> --}}
                         <li><a href="/tentangkami">Tentang Kami</a></li>
                         <li><a href="/kontak">Kontak Kami</a></li>
                     </ul>
@@ -134,8 +127,8 @@
                                 </div>
                                 <div class="homes">
                                     <!-- homes img -->
-                                    <a href="single-property-1.html" class="homes-img">
-                                        <img src="{{ $rumah->gambar->count()? ($rumah->gambar->first()->rumah_gambar): '' }}" alt="home-1" class="img-responsive">
+                                    <a href="/rumah/{{ $rumah->rumah_id }}" class="homes-img">
+                                        <img src="{{ $rumah->gambar->count()? ($rumah->gambar->first()->rumah_gambar): '' }}" style="height: 250px" alt="home-1" class="img-responsive">
                                     </a>
                                 </div>
                             </div>
@@ -144,8 +137,8 @@
                                 <!-- homes address -->
                                 <h3><a href="/rumah/{{ $rumah->rumah_id }}">{{ $rumah->rumah_tipe }}</a></h3>
                                 <p class="homes-address mb-3">
-                                    <a href="/rumah/{{ $rumah->rumah_id }}">
-                                        <span>{{ $rumah->rumah_deskripsi }}</span>
+                                    <a href="/perumahan/{{ $rumah->perumahan_id }}">
+                                        <i class="fa fa-map-marker"></i><span>{{ $rumah->perumahan->perumahan_nama }}</span>
                                     </a>
                                 </p>
                                 <!-- homes List -->

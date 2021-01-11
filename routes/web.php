@@ -54,7 +54,8 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::prefix('booking')->group(function () {
             Route::get('/', [BookingController::class, 'backend'])->name('booking');
-            Route::get('/tambah/{id}', [BookingController::class, 'tambah'])->name('booking.tambah');
+            Route::get('/map/{id}', [BookingController::class, 'tambah'])->name('booking.tambah');
+            Route::get('/edit/{id}', [BookingController::class, 'edit'])->name('booking.edit');
             Route::post('/simpan', [BookingController::class, 'simpan'])->name('booking.simpan');
             Route::delete('/hapus', [BookingController::class, 'hapus']);
         });

@@ -1,13 +1,13 @@
 @extends('backend.pages.main')
 
-@section('title', ' | Booking')
+@section('title', ' | Data Booking')
 
 @section('page')
-<li class="breadcrumb-item active">Booking</li>
+<li class="breadcrumb-item active">Data Booking</li>
 @endsection
 
 @section('header')
-<h1 class="m-0 text-dark">Booking</h1>
+<h1 class="m-0 text-dark">Data Booking</h1>
 @endsection
 
 @section('subcontent')
@@ -19,11 +19,11 @@
                     <div class="card-header">
                         <div class="btn-group" role="group">
                             <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Booking
+                                Masterplan
                             </button>
                             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                 @foreach ($perumahan as $row)
-                                <a class="dropdown-item" href="/admin-area/booking/tambah/{{ $row->perumahan_id }}">{{ $row->perumahan_nama }}</a>
+                                <a class="dropdown-item" href="/admin-area/booking/map/{{ $row->perumahan_id }}">{{ $row->perumahan_nama }}</a>
                                 @endforeach
                             </div>
                         </div>
@@ -63,6 +63,7 @@
                                             <div class="btn-group">
                                             </div>
                                             <div class="btn-group">
+                                                <a href="/admin-area/booking/edit/{{ $row->booking_id }}" class="btn btn-success">Edit</a>
                                                 <a href="javascript:;" data-id="{{ $row->booking_id }}" data-no="{{ $i }}" class="btn-danger btn btn-hapus" > Hapus</a>
                                             </div>
                                         </td>

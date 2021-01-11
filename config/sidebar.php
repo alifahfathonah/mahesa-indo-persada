@@ -58,6 +58,7 @@ return [
             'url' => '/admin-area/kontak'
         ],[
             'title' => 'Partner',
+            'id' => 'partner',
             'url' => '/admin-area/partner'
         ],[
             'title' => 'Tentang Perusahaan',
